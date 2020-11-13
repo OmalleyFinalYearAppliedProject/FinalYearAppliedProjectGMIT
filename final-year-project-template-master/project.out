@@ -1,8 +1,34 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Methodology}{}% 2
-\BOOKMARK [0][-]{chapter.3}{Technology Review}{}% 3
-\BOOKMARK [0][-]{chapter.4}{System Design}{}% 4
-\BOOKMARK [0][-]{chapter.5}{System Evaluation}{}% 5
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 6
-\BOOKMARK [0][-]{chapter.7}{References}{}% 7
-\BOOKMARK [0][-]{chapter.8}{Appendices }{}% 8
+\BOOKMARK [1][-]{subsection.1.0.1}{ Project Aims}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.0.2}{ Project Metrics}{subsection.1.0.1}% 3
+\BOOKMARK [2][-]{subsection.1.0.3}{ Chapters analyzed }{subsection.1.0.1}% 4
+\BOOKMARK [2][-]{subsection.1.0.4}{ Project Specification }{subsection.1.0.1}% 5
+\BOOKMARK [2][-]{subsection.1.0.5}{ Project Context }{subsection.1.0.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Methodology}{}% 7
+\BOOKMARK [1][-]{subsection.2.0.1}{ Version Control }{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.0.2}{ Development methodologies }{subsection.2.0.1}% 9
+\BOOKMARK [2][-]{subsection.2.0.3}{ Development Environment }{subsection.2.0.1}% 10
+\BOOKMARK [2][-]{subsection.2.0.4}{ Setting Objectives }{subsection.2.0.1}% 11
+\BOOKMARK [2][-]{subsection.2.0.5}{ Testing approach }{subsection.2.0.1}% 12
+\BOOKMARK [0][-]{chapter.3}{Technology Review}{}% 13
+\BOOKMARK [1][-]{subsection.3.0.1}{Database System MongoDB}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.0.2}{Front-End React }{subsection.3.0.1}% 15
+\BOOKMARK [2][-]{subsection.3.0.3}{Back-End Ruby }{subsection.3.0.1}% 16
+\BOOKMARK [2][-]{subsection.3.0.4}{React Framework}{subsection.3.0.1}% 17
+\BOOKMARK [0][-]{chapter.4}{System Design}{}% 18
+\BOOKMARK [1][-]{subsection.4.0.1}{Application Overview }{chapter.4}% 19
+\BOOKMARK [2][-]{subsection.4.0.2}{Data Management }{subsection.4.0.1}% 20
+\BOOKMARK [2][-]{subsection.4.0.3}{Logic Management }{subsection.4.0.1}% 21
+\BOOKMARK [2][-]{subsection.4.0.4}{Application Management }{subsection.4.0.1}% 22
+\BOOKMARK [0][-]{chapter.5}{System Evaluation}{}% 23
+\BOOKMARK [1][-]{subsection.5.0.1}{Testing}{chapter.5}% 24
+\BOOKMARK [2][-]{subsection.5.0.2}{Client Evaluation}{subsection.5.0.1}% 25
+\BOOKMARK [2][-]{subsection.5.0.3}{Server Evaluation}{subsection.5.0.1}% 26
+\BOOKMARK [2][-]{subsection.5.0.4}{Performance}{subsection.5.0.1}% 27
+\BOOKMARK [2][-]{subsection.5.0.5}{Overall Evaluation}{subsection.5.0.1}% 28
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 29
+\BOOKMARK [1][-]{subsection.6.0.1}{Overview}{chapter.6}% 30
+\BOOKMARK [2][-]{subsection.6.0.2}{Project Outcome}{subsection.6.0.1}% 31
+\BOOKMARK [2][-]{subsection.6.0.3}{Discoveries}{subsection.6.0.1}% 32
+\BOOKMARK [2][-]{subsection.6.0.4}{Reflection}{subsection.6.0.1}% 33
+\BOOKMARK [0][-]{chapter.7}{References and Appendices}{}% 34
