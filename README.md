@@ -25,11 +25,11 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 
 
 ## Project  Features  
- - User can create an account 
- - User can log into their account 
- - User can reset their password if forgotten
- - User can enroll in quizzes 
- - User can create notes for topics to revise 
+ - Learner   can create an account  / Log into account 
+ - Organiser can create an account / Log into account 
+ - Learner/Organiser can reset their password if forgotten
+ - Learner can enroll in quizzes 
+ - Organiser can delete quizzes 
 
 
 ## Developmemt  Enviroment 
