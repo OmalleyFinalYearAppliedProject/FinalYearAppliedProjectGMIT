@@ -14,6 +14,7 @@ Overview of the Project Spec  , Course and Student
 | `Author` | Tomas O'Malley (G00361128)@gmit.ie |
 | `Course` | Software Development GA_KSOAG_H08 Y4  |
 | `Module` | Final Year Applied Project  |
+| `Supervisor` | John french  |
 | `Program` | E-Learning website  |
 | `Langauge(s)` | Ruby React Redux Postgresql |
 | `Weighting` | 100% |
