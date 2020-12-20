@@ -5,7 +5,7 @@
 
 ## Description
  <p align="left">
-Here is the documentation and answers to the tasks for the module Emerging Technologies.Each Task has been created using jupyter notebook
+Overview of the Project Spec  , Course and Student  
 <br />
 </p>
 
@@ -20,7 +20,7 @@ Here is the documentation and answers to the tasks for the module Emerging Techn
 | `Year of Study` | 4 |
 
 ## Project Context  
-
+Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of interaction and learning through electronic means. My application is aimed towards all audiences whether studying in Higher education , Secondary education  or general learners. 
 
 
 ## Project  Features  
@@ -31,7 +31,7 @@ Here is the documentation and answers to the tasks for the module Emerging Techn
  - User can create notes for topics to revise 
 
 
-## Project  Enviroment 
+## Developmemt  Enviroment 
 
 
 
