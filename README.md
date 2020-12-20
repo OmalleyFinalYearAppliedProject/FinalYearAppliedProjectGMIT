@@ -22,7 +22,17 @@ Here is the documentation and answers to the tasks for the module Emerging Techn
 ## Project Context  
 
 
+
+## Project  Features  
+ - User can create an account 
+ - User can log into their account 
+ - User can reset their password if forgotten
+ - User can enroll in quizzes 
+ - User can create notes for topics to revise 
+
+
 ## Project  Enviroment 
+
 
 
 | Number | Software |
@@ -36,8 +46,8 @@ Here is the documentation and answers to the tasks for the module Emerging Techn
 
 ## Deployment 
 - To run my program(s) you must carefully follow the instructions provided in the links below to successfully run .
- 1. git clone https://github.com/OmalleyTomas98/EmergingTechnologiesTasks.git
- 2. cd EmergingTechnologiesTasks
+ 1. git clone https://github.com/OmalleyFinalYearAppliedProject/FinalYearAppliedProjectGMIT.git
+ 2. cd FinalYearAppliedProjectGMIT
  3. rails s  
  4. navigate to localhost:3000 on browser  
  
