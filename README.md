@@ -1,7 +1,7 @@
 
 <p align="center">
-<h1 align="center">Piece of cake E-Learning Project </h1>
-
+<h1 align="center">Piece of cake E-Learning Project :cake:
+ </h1>
 
 ## Description
  <p align="left">
