@@ -1,6 +1,6 @@
 
 <p align="center">
-<h1 align="center">Piece of cake E-Learning Project :cake:
+<h1 align="center">Piece of cake E-Learning Mobile App :cake:
  </h1>
 
 ## Description
@@ -15,13 +15,13 @@ Overview of the Project Spec  , Course and Student
 | `Course` | Software Development GA_KSOAG_H08 Y4  |
 | `Module` | Final Year Applied Project  |
 | `Supervisor` | John french  |
-| `Program` | E-Learning website  |
-| `Langauge(s)` | Ruby React Redux Postgresql |
+| `Program` | E-Learning Mobile-App  |
+| `Langauge(s)` | Kotlin |
 | `Weighting` | 100% |
 | `Year of Study` | 4 |
 
 ## Project Context  
-Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of interaction and learning through electronic means. My application is aimed towards all audiences whether studying in Higher education , Secondary education  or general learners. 
+Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of interaction and learning through electronic means. My application is aimed towards all audiences whether studying in Higher education , Secondary education  or general learners.A mobile application  aimed for the use of Android Users. As of 2019 Android devices are responsible for 	86.1% market share .
 
 
 ## Project  Features  
@@ -39,8 +39,8 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 | Number | Software |
 | --- | --- |
 | 1 | Unix OS (Mac OSX) |
-| 2 | Terminal CLI |
-| 3 | Sublime Text Editor |
+| 2 | Android Studio  |
+| 3 | Kotlin |
 | 5 | Git Version Control |
 | 6 | LaTex Editor |
 
@@ -49,8 +49,8 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 - To run my program(s) you must carefully follow the instructions provided in the links below to successfully run .
  1. git clone https://github.com/OmalleyFinalYearAppliedProject/FinalYearAppliedProjectGMIT.git
  2. cd FinalYearAppliedProjectGMIT
- 3. rails s  
- 4. navigate to localhost:3000 on browser  
+ 3. build   
+ 4. Download apk and deploy to Android Device 
  
 
 
