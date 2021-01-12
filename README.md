@@ -16,7 +16,8 @@ Overview of the Project Spec  , Course and Student
 | `Module` | Final Year Applied Project  |
 | `Supervisor` | John french  |
 | `Program` | E-Learning Mobile-App  |
-| `Langauge(s)` | Kotlin |
+| `Enviroment` | Android Studio  |
+| `Langauge(s)` | Kotlin XML SQLite  |
 | `Weighting` | 100% |
 | `Year of Study` | 4 |
 
@@ -40,7 +41,7 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 | --- | --- |
 | 1 | Unix OS (Mac OSX) |
 | 2 | Android Studio  |
-| 3 | Kotlin |
+| 3 | Kotlin , XML , SQLite |
 | 5 | Git Version Control |
 | 6 | LaTex Editor |
 
