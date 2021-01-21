@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "682171206555",
+    "project_id": "finalyeardevgmit",
+    "storage_bucket": "finalyeardevgmit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682171206555:android:3961f8a4aff41aad5e2f3e",
+        "android_client_info": {
+          "package_name": "com.example.e_learning_gmit_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682171206555-f9f7k320i4i7j93qn2aim4si2sr0rqpq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_learning_gmit_app",
+            "certificate_hash": "03fe013993f50bf4de274c204e8424925c9c4fa7"
+          }
+        },
+        {
+          "client_id": "682171206555-0bag8rgk01iavvsfvt76e03t1qnbut8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB95bHIycxQ-PN8vLI-bBXnQMZPjGZ4l2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682171206555-0bag8rgk01iavvsfvt76e03t1qnbut8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
