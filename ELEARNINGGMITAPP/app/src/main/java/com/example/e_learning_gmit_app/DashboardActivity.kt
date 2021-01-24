@@ -12,7 +12,33 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
 
 
+        //Launches the Calender Activity inside of the users DashBoard
+        calender_btn.setOnClickListener{
+
+            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+        }
+
+        //Launches the Messages  Activity inside of the users DashBoard
         messaging_btn.setOnClickListener{
+
+            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+        }
+
+        //Launches the about app , Describes app to user  Activity inside of the users DashBoard
+        app_info_btn.setOnClickListener{
+
+            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+        }
+
+
+        //Launches the about app , Shows user Details  to user  Activity inside of the users DashBoard
+        my_acc_btn.setOnClickListener{
+
+            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+        }
+
+        //Launches the about app , Begins Quiz Page  to user  Activity inside of the users DashBoard
+        quiz_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
         }
