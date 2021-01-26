@@ -6,4 +6,12 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+
+    <color name="bachground">#282633</color>
+    <color name="purple">#6f50c5</color>
+ <color name="whiteText">#fdfbfc</color>
+
+ <color name="goldtext">#e2c98a</color>
+
+
 </resources>

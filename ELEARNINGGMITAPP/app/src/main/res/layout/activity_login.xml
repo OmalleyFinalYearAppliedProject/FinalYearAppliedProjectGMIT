@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-
-    android:background="#808080">
-
+    android:background="#272733"
+    >
 
 
 
@@ -21,21 +20,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="404dp"
             android:layout_height="match_parent"
+            android:background="@color/purple"
             android:contentDescription="@string/image"
-            android:scaleType= "fitXY"
-            android:src="@drawable/testerlogo"/>
+            android:fontFamily="@font/opensansbold"
+            android:scaleType="fitXY"
+            android:text="All creative Works,"
+            android:textAlignment="center"
+            android:textColor="@color/white"
 
+            android:textSize="30dp" />
 
-        <ImageView
-            android:layout_width="283dp"
-            android:layout_height="151dp"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
-            app:tint="@android:color/white" />
+            android:contentDescription="@string/image"
+            android:fontFamily="@font/opensansbold"
+            android:scaleType="fitXY"
+            android:text="Selected Today,"
+            android:textAlignment="center"
+            android:textColor="@color/goldtext"
+
+            android:textSize="30dp" />
 
 
     </FrameLayout>
@@ -45,10 +54,11 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="LOGIN SCREEN"
-        android:textColor="#222934"
-        android:textSize="18sp"
+        android:layout_marginTop="100dp"
+        android:text="Enter your information below"
+        android:textColor="@color/whiteText"
+        android:textSize="12sp"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,11 +80,13 @@
         app:layout_constraintTop_toBottomOf="@id/tv_title">
 
         <EditText
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="@color/white"
             android:id="@+id/et_login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="abc123"/>
+            android:text=""/>
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,6 +107,8 @@
         app:layout_constraintTop_toBottomOf="@id/til_login_email">
 
         <EditText
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="@color/white"
             android:id="@+id/et_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,26 +119,25 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
+        android:layout_width="60dp"
+        android:layout_height="44dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/roundstyle"
         android:foreground="?attr/selectableItemBackground"
+        android:backgroundTint="@color/white"
+
         android:gravity="center"
-        android:text="Login"
-        android:textColor="@android:color/white"
+        android:text="->"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_login_password"/>
+        app:layout_constraintTop_toBottomOf="@id/til_login_password" />
 
 
     <LinearLayout
@@ -140,12 +153,16 @@
 
 
 
+
         <TextView
             android:id="@+id/tv_don_t_have_an_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:padding="15dp"
+            android:textColor="@color/whiteText"
+            android:fontFamily="@font/opensansbold"
+
             android:text="Dont have an account ? "/>
 
 
@@ -153,17 +170,20 @@
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:foreground="?attr/selectableItemBackground"
             android:padding="5dp"
-            android:text="Log in"
-            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/opensansbold"
+
+            android:text="Sign Up"
+            android:textColor="@color/whiteText"
             android:textStyle="bold"
 
 
             />
-    </LinearLayout>
 
+
+    </LinearLayout>
 
 
 
