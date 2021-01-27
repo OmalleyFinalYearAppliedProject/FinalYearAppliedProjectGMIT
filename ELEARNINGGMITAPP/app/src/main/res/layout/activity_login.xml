@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="#272733"
+    android:background="@color/whiteText"
     >
 
 
@@ -20,44 +20,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
-            android:layout_width="404dp"
-            android:layout_height="match_parent"
-            android:background="@color/purple"
-            android:contentDescription="@string/image"
-            android:fontFamily="@font/opensansbold"
-            android:scaleType="fitXY"
-            android:text="All creative Works,"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-
-            android:textSize="30dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/image"
-            android:fontFamily="@font/opensansbold"
-            android:scaleType="fitXY"
-            android:text="Selected Today,"
-            android:textAlignment="center"
-            android:textColor="@color/goldtext"
-
-            android:textSize="30dp" />
-
 
     </FrameLayout>
 
 
+
     <TextView
-        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Enter your information below"
-        android:textColor="@color/whiteText"
-        android:textSize="12sp"
+        android:layout_marginTop="50dp"
+        android:text="Sign IN Page"
+        android:textColor="@color/black"
+        android:textSize="22sp"
 
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,13 +39,27 @@
         app:layout_constraintTop_toBottomOf ="@id/fl_header_image"/>
 
 
-
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:gravity="left"
+        android:text="Enter your information below"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_header_image" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textColorHint="@color/black"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:hint="Email "
@@ -81,11 +69,12 @@
 
         <EditText
             android:background="@drawable/roundstyle"
-            android:backgroundTint="@color/white"
             android:id="@+id/et_login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
+            android:textColorHint="@color/black"
+
             android:text=""/>
 
 
@@ -102,13 +91,13 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:hint="Password"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_login_email">
 
         <EditText
             android:background="@drawable/roundstyle"
-            android:backgroundTint="@color/white"
             android:id="@+id/et_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,7 +117,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/roundstyle"
         android:foreground="?attr/selectableItemBackground"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/colorAccent"
 
         android:gravity="center"
         android:text="->"
@@ -142,25 +131,60 @@
 
     <Button
         android:id="@+id/google_sign_in"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="right"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/roundstyle"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/googlesignimage"
         android:foreground="?attr/selectableItemBackground"
-        android:backgroundTint="@color/white"
 
         android:gravity="center"
-        android:text="Google"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_login_password" />
 
+    <Button
+        android:id="@+id/github_sign_in"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/githubcat"
+        android:foreground="?attr/selectableItemBackground"
 
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_login_password" />
+
+    <Button
+        android:id="@+id/facebook_sign_in"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/facebookimage"
+        android:foreground="?attr/selectableItemBackground"
+
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_login_password" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -173,36 +197,33 @@
         app:layout_constraintTop_toBottomOf="@id/btn_login">
 
 
-
-
-
         <TextView
             android:id="@+id/tv_don_t_have_an_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:padding="15dp"
-            android:textColor="@color/whiteText"
             android:fontFamily="@font/opensansbold"
+            android:padding="15dp"
+            android:text="Dont have an account ? "
 
-            android:text="Dont have an account ? "/>
-
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="590dp" />
 
         <TextView
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:fontFamily="@font/opensansbold"
             android:foreground="?attr/selectableItemBackground"
             android:padding="5dp"
-            android:fontFamily="@font/opensansbold"
 
             android:text="Sign Up"
-            android:textColor="@color/whiteText"
+            android:textColor="@color/black"
             android:textStyle="bold"
 
 
-            />
+            tools:layout_editor_absoluteX="283dp"
+            tools:layout_editor_absoluteY="598dp" />
 
 
     </LinearLayout>

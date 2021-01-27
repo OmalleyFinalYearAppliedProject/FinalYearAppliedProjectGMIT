@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/purple"
         android:text="Logout"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
