@@ -11,9 +11,35 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_question_lobby.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mAuth: FirebaseAuth
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+
+        mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
+
+
+        /** If the user is not authenticated , send them to sign Activity**/
+
+        if( user != null){
+
+            val dashboardIntent = Intent (this , DashboardActivity::class.java)
+            startActivity(dashboardIntent)
+            finish()
+        } else {
+            val signInintent = Intent (this , LoginActivity::class.java)
+            startActivity(signInintent)
+            finish()
+
+        }
+
 
 
 

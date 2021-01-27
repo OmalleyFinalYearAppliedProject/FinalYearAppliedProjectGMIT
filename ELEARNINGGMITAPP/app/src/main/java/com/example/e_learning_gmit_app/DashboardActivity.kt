@@ -16,31 +16,40 @@ class DashboardActivity : AppCompatActivity() {
         calender_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            finish()
         }
 
         //Launches the Messages  Activity inside of the users DashBoard
         messaging_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            finish()
+
         }
 
         //Launches the about app , Describes app to user  Activity inside of the users DashBoard
         app_info_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            finish()
+
         }
 
 
         //Launches the about app , Shows user Details  to user  Activity inside of the users DashBoard
         my_acc_btn.setOnClickListener{
 
-            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            startActivity(Intent(this@DashboardActivity, userProfileActivity::class.java))
+            finish()
+
         }
 
         //Launches the about app , Begins Quiz Page  to user  Activity inside of the users DashBoard
         quiz_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            finish()
+
         }
     }
 }
