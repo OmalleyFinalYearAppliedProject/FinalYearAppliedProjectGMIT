@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.e_learning_gmit_app">
+    package="com.example.e_learning_gmit_app" >
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ELEARNINGGMITAPP">
-        <activity android:name=".userProfileActivity"></activity>
+        android:theme="@style/Theme.ELEARNINGGMITAPP" >
+        <activity android:name=".AboutUs" >
+        </activity>
+        <activity android:name=".userProfileActivity" />
         <activity
             android:name=".QuestionLobby"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".QuizQuestionsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
