@@ -2,6 +2,7 @@ package com.example.e_learning_gmit_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 
 class CalenderActivity : AppCompatActivity() {
@@ -9,10 +10,16 @@ class CalenderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calender)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
+        val actionbar = supportActionBar
+        actionbar!!.title = "Dashboard"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
 
     }
 
-
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }

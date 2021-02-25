@@ -14,19 +14,17 @@
         android:theme="@style/Theme.ELEARNINGGMITAPP">
         <activity android:name=".CalenderActivity"
 
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+            />
         <activity android:name=".CoursesActivity"
 
 
             />
         <activity android:name=".userProfileActivity"
 
-            android:theme="@style/AppTheme.NoActionBar"
             />
         <activity
             android:name=".QuestionLobby"
-            android:theme="@style/AppTheme.NoActionBar" />
+           />
         <activity
             android:name=".QuizQuestionsActivity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -12,18 +12,17 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
 
 
+
         //Launches the Calender Activity inside of the users DashBoard
         calender_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, CalenderActivity::class.java))
-            finish()
         }
 
         //Launches the Messages  Activity inside of the users DashBoard
         messaging_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
-            finish()
 
         }
 
@@ -31,7 +30,6 @@ class DashboardActivity : AppCompatActivity() {
         app_info_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, CoursesActivity::class.java))
-            finish()
 
         }
 
@@ -40,7 +38,7 @@ class DashboardActivity : AppCompatActivity() {
         my_acc_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, userProfileActivity::class.java))
-            finish()
+
 
         }
 
@@ -48,7 +46,7 @@ class DashboardActivity : AppCompatActivity() {
         quiz_btn.setOnClickListener{
 
             startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
-            finish()
+
 
         }
     }

@@ -14,6 +14,12 @@ class userProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
+        val actionbar = supportActionBar
+        actionbar!!.title = "Dashboard"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
+
 
         mAuth = FirebaseAuth.getInstance()
         val currentuser = mAuth.currentUser
@@ -22,5 +28,13 @@ class userProfileActivity : AppCompatActivity() {
         name_txt.text = currentuser?.displayName
         email_txt.text = currentuser?.email
 
+
+
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 }
+
