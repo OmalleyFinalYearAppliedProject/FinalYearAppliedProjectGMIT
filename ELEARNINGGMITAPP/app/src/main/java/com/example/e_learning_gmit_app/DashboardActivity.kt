@@ -15,7 +15,7 @@ class DashboardActivity : AppCompatActivity() {
         //Launches the Calender Activity inside of the users DashBoard
         calender_btn.setOnClickListener{
 
-            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            startActivity(Intent(this@DashboardActivity, CalenderActivity::class.java))
             finish()
         }
 
