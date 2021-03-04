@@ -34,6 +34,8 @@ class CoursesActivity : AppCompatActivity() {
         viewModel.myResponse.observe(this, Observer { response ->
 
             if (response.isSuccessful) {
+
+                
                 Log.d("Response ", response.body()?.id.toString())
                 Log.d("Response ", response.body()?.username.toString())
                 Log.d("Response ", response.body()?.password.toString())

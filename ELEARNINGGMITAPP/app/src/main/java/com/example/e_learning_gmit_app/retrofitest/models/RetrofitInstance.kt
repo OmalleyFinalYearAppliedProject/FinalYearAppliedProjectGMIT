@@ -14,8 +14,8 @@ object RetrofitInstance {
             .build()
     }
 
-    val api: PostGetRequest by lazy {
+    val api: SimpleApi by lazy {
 
-        retrofit.create(PostGetRequest::class.java)
+        retrofit.create(SimpleApi::class.java)
     }
 }

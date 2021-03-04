@@ -5,7 +5,8 @@
     <color name="colorAccent">#11F6C0</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-
+ <color name="colorLightGray">#9F9F9F</color>
+ <color name="colorWhite">#FFFFFF</color>
 
     <color name="bachground">#282633</color>
     <color name="purple">#6f50c5</color>

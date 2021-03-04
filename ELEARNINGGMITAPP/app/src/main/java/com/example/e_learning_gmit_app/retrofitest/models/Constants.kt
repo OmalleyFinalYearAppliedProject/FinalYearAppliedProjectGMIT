@@ -5,6 +5,6 @@ class Constants {
     companion object {
 
 
-        const val BASE_URL = "https://piece-of-cake-learning.herokuapp.com/"
+        const val BASE_URL = "https://piece-of-cake-learning.herokuapp.com"
     }
 }
