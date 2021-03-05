@@ -43,11 +43,10 @@ class CalenderActivity : AppCompatActivity() {
             rvItemsList.visibility = View.VISIBLE
             tvNoRecordsAvailable.visibility = View.GONE
 
-            // Set the LayoutManager that this RecyclerView will use.
             rvItemsList.layoutManager = LinearLayoutManager(this)
-            // Adapter class is initialized and list is passed in the param.
+
             val itemAdapter = ItemAdapter(this, getItemsList())
-            // adapter instance is set to the recyclerview to inflate the items.
+
             rvItemsList.adapter = itemAdapter
         } else {
 
@@ -57,25 +56,27 @@ class CalenderActivity : AppCompatActivity() {
     }
 
     /**
-     * Function is used to get the Items List from the database table.
+     * getItemsList()  used to get the Items List from the database table.
      */
     private fun getItemsList(): ArrayList<userModelClass> {
         //creating the instance of DatabaseHandler class
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
-        //calling the viewEmployee method of DatabaseHandler class to read the records
-        val empList: ArrayList<userModelClass> = databaseHandler.viewEmployee()
+        //calling the viewUser method of DatabaseHandler class to read the records
+        val empList: ArrayList<userModelClass> = databaseHandler.viewUser()
 
         return empList
     }
 
-    //Method for saving the employee records in database
+    //Method for saving the user records in database
     private fun addRecord() {
+
         val name = etName.text.toString()
         val email = etEmailId.text.toString()
+
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
         if (!name.isEmpty() && !email.isEmpty()) {
             val status =
-                    databaseHandler.addEmployee(userModelClass(0, name, email))
+                    databaseHandler.addUser(userModelClass(0, name, email))
             if (status > -1) {
                 Toast.makeText(applicationContext, "Record saved", Toast.LENGTH_LONG).show()
                 etName.text.clear()
@@ -86,7 +87,7 @@ class CalenderActivity : AppCompatActivity() {
         } else {
             Toast.makeText(
                     applicationContext,
-                    "Name or Email cannot be blank",
+                    "Event Name or Event Date  cannot be blank",
                     Toast.LENGTH_LONG
             ).show()
         }
@@ -95,10 +96,12 @@ class CalenderActivity : AppCompatActivity() {
      * Method is used to show the Custom Dialog.
      */
     fun updateRecordDialog(userModelClass: userModelClass) {
+
+
         val updateDialog = Dialog(this, R.style.Theme_Dialog)
         updateDialog.setCancelable(false)
-        /*Set the screen content from a layout resource.
-         The resource will be inflated, adding all top-level views to the screen.*/
+
+
         updateDialog.setContentView(R.layout.dialog_update)
 
         updateDialog.etUpdateName.setText(userModelClass.name)
@@ -113,7 +116,7 @@ class CalenderActivity : AppCompatActivity() {
 
             if (!name.isEmpty() && !email.isEmpty()) {
                 val status =
-                        databaseHandler.updateEmployee(userModelClass(userModelClass.id, name, email))
+                        databaseHandler.updateUser(userModelClass(userModelClass.id, name, email))
                 if (status > -1) {
                     Toast.makeText(applicationContext, "Record Updated.", Toast.LENGTH_LONG).show()
 
@@ -124,7 +127,7 @@ class CalenderActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                         applicationContext,
-                        "Name or Email cannot be blank",
+                        "Event Name or Event Date cannot be blank",
                         Toast.LENGTH_LONG
                 ).show()
             }
@@ -142,22 +145,24 @@ class CalenderActivity : AppCompatActivity() {
     fun deleteRecordAlertDialog(empModelClass: userModelClass) {
         val builder = AlertDialog.Builder(this)
         //set title for alert dialog
-        builder.setTitle("Delete Record")
+        builder.setTitle("Delete Event")
+
         //set message for alert dialog
-        builder.setMessage("Are you sure you wants to delete ${empModelClass.name}.")
+        builder.setMessage("Are you sure you want to delete ${empModelClass.name}.")
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
-        //performing positive action
         builder.setPositiveButton("Yes") { dialogInterface, which ->
 
             //creating the instance of DatabaseHandler class
             val databaseHandler: DatabaseHandler = DatabaseHandler(this)
-            //calling the deleteEmployee method of DatabaseHandler class to delete record
-            val status = databaseHandler.deleteEmployee(userModelClass(empModelClass.id, "", ""))
+            //calling the deleteUser method of DatabaseHandler class to delete record
+
+
+            val status = databaseHandler.deleteUser(userModelClass(empModelClass.id, "", ""))
             if (status > -1) {
                 Toast.makeText(
                         applicationContext,
-                        "Record deleted successfully.",
+                        "Event deleted successfully.",
                         Toast.LENGTH_LONG
                 ).show()
 
@@ -166,13 +171,16 @@ class CalenderActivity : AppCompatActivity() {
 
             dialogInterface.dismiss() // Dialog will be dismissed
         }
+
         //performing negative action
         builder.setNegativeButton("No") { dialogInterface, which ->
             dialogInterface.dismiss() // Dialog will be dismissed
         }
+
         // Create the AlertDialog
         val alertDialog: AlertDialog = builder.create()
         // Set other dialog properties
+
         alertDialog.setCancelable(false) // Will not allow user to cancel after clicking on remaining screen area.
         alertDialog.show()  // show the dialog to UI
     }

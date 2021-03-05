@@ -8,15 +8,14 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 
-//creating the database logic, extending the SQLiteOpenHelper base class
 class DatabaseHandler(context: Context) :
         SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private val DATABASE_VERSION = 1
-        private val DATABASE_NAME = "EmployeeDatabase"
+        private val DATABASE_NAME = "UserDatabase"
 
-        private val TABLE_CONTACTS = "EmployeeTable"
+        private val TABLE_CONTACTS = "UserTable"
 
         private val KEY_ID = "_id"
         private val KEY_NAME = "name"
@@ -24,7 +23,6 @@ class DatabaseHandler(context: Context) :
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        //creating table with fields
         val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_EMAIL + " TEXT" + ")")
@@ -36,26 +34,21 @@ class DatabaseHandler(context: Context) :
         onCreate(db)
     }
 
-    /**
-     * Function to insert data
-     */
-    fun addEmployee(use: userModelClass): Long {
+    fun addUser(use: userModelClass): Long {
         val db = this.writableDatabase
 
         val contentValues = ContentValues()
-        contentValues.put(KEY_NAME, use.name) // EmpModelClass Name
-        contentValues.put(KEY_EMAIL, use.email) // EmpModelClass Email
+        contentValues.put(KEY_NAME, use.name)
+        contentValues.put(KEY_EMAIL, use.email)
 
-        // Inserting employee details using insert query.
         val success = db.insert(TABLE_CONTACTS, null, contentValues)
-        //2nd argument is String containing nullColumnHack
 
         db.close() // Closing database connection
         return success
     }
 
     //Method to read the records from database in form of ArrayList
-    fun viewEmployee(): ArrayList<userModelClass> {
+    fun viewUser(): ArrayList<userModelClass> {
 
         val empList: ArrayList<userModelClass> = ArrayList<userModelClass>()
 
@@ -63,7 +56,6 @@ class DatabaseHandler(context: Context) :
         val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
 
         val db = this.readableDatabase
-        // Cursor is used to read the record one by one. Add them to data model class.
         var cursor: Cursor? = null
 
         try {
@@ -92,28 +84,30 @@ class DatabaseHandler(context: Context) :
         return empList
     }
 
-    fun updateEmployee(emp: userModelClass): Int {
+    fun updateUser(emp: userModelClass): Int {
+
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(KEY_NAME, emp.name) // EmpModelClass Name
-        contentValues.put(KEY_EMAIL, emp.email) // EmpModelClass Email
+
+        contentValues.put(KEY_NAME, emp.name)
+        contentValues.put(KEY_EMAIL, emp.email)
 
         // Updating Row
         val success = db.update(TABLE_CONTACTS, contentValues, KEY_ID + "=" + emp.id, null)
-        //2nd argument is String containing nullColumnHack
 
         // Closing database connection
         db.close()
         return success
     }
 
-    fun deleteEmployee(emp: userModelClass): Int {
+    fun deleteUser(emp: userModelClass): Int {
+
         val db = this.writableDatabase
         val contentValues = ContentValues()
+
         contentValues.put(KEY_ID, emp.id) // EmpModelClass id
         // Deleting Row
         val success = db.delete(TABLE_CONTACTS, KEY_ID + "=" + emp.id, null)
-        //2nd argument is String containing nullColumnHack
 
         // Closing database connection
         db.close()

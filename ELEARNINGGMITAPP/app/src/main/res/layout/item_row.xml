@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        tools:text="Name" />
+        tools:text="Event Name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
         android:layout_height="50dp"
         android:contentDescription="image"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="center"
+        android:scaleType="fitXY"
         android:src="@drawable/editicon" />
 
     <ImageView
@@ -49,6 +49,7 @@
         android:layout_height="50dp"
         android:contentDescription="image"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="center"
+        android:scaleType="fitXY"
+
         android:src="@drawable/deleteicon" />
 </LinearLayout>

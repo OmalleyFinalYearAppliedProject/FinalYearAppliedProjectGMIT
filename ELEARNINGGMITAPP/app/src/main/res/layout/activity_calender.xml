@@ -10,17 +10,39 @@
     tools:context=".CalenderActivity"
     tools:showIn="@layout/activity_calender">
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="150dp" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Name"
+            android:text="Event Name"
             android:textSize="18sp" />
 
         <EditText
@@ -28,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Enter Name" />
+            android:hint="Enter Event  Name" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Email ID"
+            android:text="Event Date"
             android:textSize="18sp" />
 
         <EditText
@@ -49,7 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Enter Email ID"
+            android:hint="Enter Event Date"
             android:inputType="textEmailAddress" />
     </LinearLayout>
 
@@ -58,7 +80,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="ADD RECORD" />
+        android:backgroundTint="@color/colorAccent"
+        android:text="ADD EVENT" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="All the inserted records."
+            android:text="All your events."
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -91,8 +114,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="No records available!!!"
+        android:text="No events available!!!"
         android:textSize="18sp"
         android:visibility="gone"
         tools:visibility="visible" />
+
+
 </LinearLayout>
