@@ -29,7 +29,7 @@ class DashboardActivity : AppCompatActivity() {
         //Launches the about app , Describes app to user  Activity inside of the users DashBoard
         app_info_btn.setOnClickListener{
 
-            startActivity(Intent(this@DashboardActivity, CoursesActivity::class.java))
+            startActivity(Intent(this@DashboardActivity, QuizFeed::class.java))
 
         }
 

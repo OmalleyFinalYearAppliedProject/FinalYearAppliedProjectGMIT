@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.e_learning_gmit_app">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ELEARNINGGMITAPP">
-        <activity android:name=".CalenderActivity"
-            android:windowSoftInputMode="adjustResize"
-
-            />
+        <activity android:name=".QuizFeed"></activity>
+        <activity
+            android:name=".CalenderActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".CoursesActivity" />
         <activity android:name=".userProfileActivity" />
         <activity android:name=".QuestionLobby" />
@@ -36,23 +35,19 @@
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateVisible"
-            />
+            android:windowSoftInputMode="stateVisible" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".DashboardActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            />
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
