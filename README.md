@@ -36,7 +36,6 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 ## Developmemt  Enviroment 
 
 
-
 | Number | Software |
 | --- | --- |
 | 1 | Unix OS (Mac OSX) |
@@ -46,6 +45,17 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 | 6 | LaTex Editor |
 
 
+
+
+
+
+## Compiling 
+- To compile the project you must for recreational or testing you must first download the android studio application 
+- and open a copy of the cloned repository 
+- You must click build and the application will build and prompt on the android  enulator 
+
+
+
 ## Deployment 
 - To run my program(s) you must carefully follow the instructions provided in the links below to successfully run .
  1. git clone https://github.com/OmalleyFinalYearAppliedProject/FinalYearAppliedProjectGMIT.git
@@ -53,5 +63,6 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
  3. build   
  4. Download apk and deploy to Android Device 
  
-
+## Running 
+- After compiling from source code or loading the apk the user can now interact with the application
 
