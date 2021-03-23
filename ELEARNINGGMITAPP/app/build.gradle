@@ -45,10 +45,11 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     // Adding HTTP client for fetching URL from Ruby Backend
-    implementation "com.squareup.okhttp3:okhttp"
-    implementation "com.squareup.okhttp3:okhttp-bom:4.4.1"
 
 
+
+    // quiz feed fot appi pull
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
 
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
@@ -77,8 +78,6 @@ dependencies {
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
     //recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha03'
 
@@ -109,7 +108,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     //retrofit requisites retro+gson
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
 
 
 }
