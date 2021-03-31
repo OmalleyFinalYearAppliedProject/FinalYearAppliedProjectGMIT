@@ -22,7 +22,7 @@ Overview of the Project Spec  , Course and Student
 | `Year of Study` | 4 |
 
 ## Project Context  
-Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of interaction and learning through electronic means. My application is aimed towards all audiences whether studying in Higher education , Secondary education  or general learners.A mobile application  aimed for the use of Android Users. As of 2019 Android devices are responsible for 	86.1% market share .
+Due to the COVID-19 pandemic, we must all adapt and overcome the new ways of interaction and learning through electronic means. My application is aimed towards all audiences whether studying in Higher education, Secondary education, or general learners. A mobile application aimed at the use of Android Users. As of 2019 Android devices are responsible for 	86.1% market share. I decided to create an android mobile application using the Android Studio IDE. All tools/languages are listed in the  'Development  Environment section in greater depth. Through development, each component was developed with an agile approach in mind delivering milestones weekly and described in my git commits history.
 
 
 ## Project  Features  
@@ -44,16 +44,19 @@ Due to the COVID-19 pandemic  we must all adapt and overcome the new ways of int
 | 5 | Git Version Control |
 | 6 | LaTex Editor |
 
+The project was designed with a three tier system in mind. 
 
-
-
-
+## Features
+- User Sign up and Sign In Page 
+- User Calendar page
+- Quiz Enroll Page 
+- User Profile
+- Messaging
 
 ## Compiling 
 - To compile the project you must for recreational or testing you must first download the android studio application 
 - and open a copy of the cloned repository 
 - You must click build and the application will build and prompt on the android  enulator 
-
 
 
 ## Deployment 
