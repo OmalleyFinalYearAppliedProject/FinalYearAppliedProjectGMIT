@@ -38,11 +38,13 @@ Due to the COVID-19 pandemic, we must all adapt and overcome the new ways of int
 
 | Number | Software |
 | --- | --- |
-| 1 | Unix OS (Mac OSX) |
-| 2 | Android Studio  |
+| 1 | Windows 10 OS |
+| 2 | Android Studio IDE   |
 | 3 | Kotlin , XML , SQLite |
 | 5 | Git Version Control |
-| 6 | LaTex Editor |
+| 6 | Heroku |
+| 7 | LaTex Editor |
+
 
 The project was designed with a three tier system in mind. 
 
