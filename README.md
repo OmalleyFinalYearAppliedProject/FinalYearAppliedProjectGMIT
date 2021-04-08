@@ -33,6 +33,16 @@ Due to the COVID-19 pandemic, we must all adapt and overcome the new ways of int
  - Organiser can delete quizzes 
 
 
+
+
+## Repository Overview
+
+- ELEARNINGGMITAPP : Contains all code to develop Android Application.
+- ruby-backend :  Contains code for ruby backend. 
+- README.md : File you are viewing , A short overiew of the context of the project and technologies 
+- dissertation.txt :Contains file for the dissertation.
+
+
 ## Developmemt  Enviroment 
 
 
