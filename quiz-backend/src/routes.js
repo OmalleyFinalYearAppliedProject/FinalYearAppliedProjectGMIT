@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router()
 const Question = require('./models/Question') // includes our model
 const Quiz = require('./models/Quiz') // includes our model
+const dotenv = require("dotenv");
 
+dotenv.config();
 
 // get all quiz questions
 router.get('/questions', async (req, res) => {
