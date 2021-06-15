@@ -4,11 +4,17 @@ import android.graphics.Color
 import android.graphics.LinearGradient
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_quiz_feed.*
 import okhttp3.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class QuizFeed : AppCompatActivity() {
@@ -16,53 +22,38 @@ class QuizFeed : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_feed)
 
-        //recyclerView_main.setBackgroundColor(Color.BLUE)
-
-        recyclerView_main.layoutManager = LinearLayoutManager(this)
-      //  recyclerView_main.adapter = MainAdapter()
+        var rf = Retrofit.Builder()
+            .baseUrl(FeedInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
 
 
-        fetchJson()
-    }
+        var API = rf.create(FeedInterface::class.java)
+        var call =  API.posts
 
-    fun fetchJson(){
-        println("Attempting to Fetch JSON")
+        call?.enqueue(object : Callback<List<FeedModel?>?> {
 
-
-        var url = "https://piece-of-cake-learning.herokuapp.com/api/v1/users"
-
-        val request = Request.Builder().url(url).build()
-
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object: Callback {
-
-
-            override fun onResponse(call: Call?, response: Response?) {
-                val body = response?.body()?.string()
-                println(body)
-
-                val gson = GsonBuilder().create()
-                val homeFeed =  gson.fromJson(body, HomeFeed::class.java )
-
-
-                runOnUiThread {
-                    recyclerView_main.adapter = MainAdapter(homeFeed)
+                override fun onFailure(call: Call<List<FeedModel?>?>, t: Throwable) {
+                    TODO("Not yet implemented")
                 }
-            }
+                override fun onResponse(
+                    call: Call<List<FeedModel?>?>,
+                    response: Response<List<FeedModel?>?>
+                ) {
+                    var feedList : List<FeedModel>? = response.body() as List<FeedModel>
+                    var post = arrayOfNulls<String>(feedList!!.size)
 
-            override fun onFailure(call: Call?, e: IOException?) {
-                println("Failed to exec")
-            }
+                    for (i in feedList!!.indices )
+                        post[i] = feedList!![i]!!.description
+
+
+
+                    var adapter = ArrayAdapter<String>(applicationContext,android.R.layout.simple_dropdown_item_1line,post)
+                    listview.adapter = adapter
+
+                }
 
 
         })
     }
+
+
 }
-
-class HomeFeed(val users: List<User>)
-
-class User(val id: Int ,val username: String  , val password: String , val created_at: String , val updated_at: String )
-
-//class Channel(val name:String , val profileImageUrl: String)
-
-//[{"id":1,"username":"Oliver","password":"password","created_at":"2021-02-16T22:52:47.440Z","updated_at":"2021-02-16T22:52:47.440Z"}]
