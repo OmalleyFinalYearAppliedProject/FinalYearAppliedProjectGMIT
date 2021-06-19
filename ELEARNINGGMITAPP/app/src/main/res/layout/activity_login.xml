@@ -209,6 +209,20 @@
             tools:layout_editor_absoluteX="63dp"
             tools:layout_editor_absoluteY="590dp" />
 
+
+
+        <TextView
+            android:id="@+id/guestacc_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansbold"
+            android:padding="15dp"
+            android:text="Guest"
+
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="590dp" />
+
         <TextView
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"

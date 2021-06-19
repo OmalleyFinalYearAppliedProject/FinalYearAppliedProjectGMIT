@@ -24,6 +24,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -46,9 +47,11 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+        //Launches the Calender Activity inside of the users DashBoard
+        guestacc_btn.setOnClickListener{
 
-
-
+            startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+        }
 
 tv_register.setOnClickListener{
 
@@ -237,4 +240,8 @@ tv_register.setOnClickListener{
 
                 }
     }
+
+
+
+
 }
