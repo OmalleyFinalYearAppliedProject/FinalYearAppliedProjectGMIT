@@ -2,6 +2,7 @@ package com.example.e_learning_gmit_app
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.FaceDetector
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Base64
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -19,8 +21,9 @@ import com.google.firebase.auth.OAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
-import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult
+import com.google.firebase.auth.FacebookAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
@@ -31,13 +34,20 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    var callbackManager: CallbackManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         printKeyHash()
+        mAuth = FirebaseAuth.getInstance()
+        callbackManager = CallbackManager.Factory.create()
 
+        facebook_sign_in.setReadPermissions("email")
+        facebook_sign_in.setOnClickListener {
+            facebookSignIn()
+        }
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
@@ -148,16 +158,9 @@ class LoginActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
 
                                 ).show()
-
-
                             }
-
-
                         }
-
-
                 }
-
 
             }
         }
@@ -191,6 +194,9 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        callbackManager!!.onActivityResult(requestCode, resultCode, data)
+
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
@@ -230,9 +236,9 @@ class LoginActivity : AppCompatActivity() {
                     // If sign in fails, display a message to the user.
                     Log.w("LoginActivity", "signInWithCredential:failure", task.exception)
                 }
-
             }
     }
+
     private fun printKeyHash() {
 
         try {
@@ -255,6 +261,32 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun facebookSignIn() {
+
+
+        facebook_sign_in.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult?) {
+
+                handleFacebookAccessToken(result!!.accessToken)
+            }
+
+            override fun onCancel() {
+            }
+
+            override fun onError(error: FacebookException?) {
+            }
+        })
     }
 
+    private fun handleFacebookAccessToken(accessToken: AccessToken?) {
+        var credential = FacebookAuthProvider.getCredential(accessToken!!.token)
+        mAuth.signInWithCredential(credential).addOnFailureListener { e ->
+            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+        }
+            .addOnSuccessListener { result ->
+
+                val email = result.user?.email
+                Toast.makeText(this, "You logged in " + email, Toast.LENGTH_LONG).show()
+                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+            }
+    }
 }
