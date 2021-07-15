@@ -14,12 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
 
         mAuth = FirebaseAuth.getInstance()
@@ -28,21 +25,17 @@ class MainActivity : AppCompatActivity() {
 
         /** If the user is not authenticated , send them to sign Activity**/
 
-        if( user != null){
+        if (user != null) {
 
-            val dashboardIntent = Intent (this , DashboardActivity::class.java)
+            val dashboardIntent = Intent(this, DashboardActivity::class.java)
             startActivity(dashboardIntent)
             finish()
         } else {
-            val signInintent = Intent (this , LoginActivity::class.java)
+            val signInintent = Intent(this, LoginActivity::class.java)
             startActivity(signInintent)
             finish()
 
         }
-
-
-
-
 
         val userId = intent.getStringExtra("user_id")
         val emailId = intent.getStringExtra("email_id")
@@ -50,14 +43,13 @@ class MainActivity : AppCompatActivity() {
         tv_user_id.text = "User ID :: $userId"
         tv_email_id.text = "Email ID :: $emailId"
 
-
         btn_logout.setOnClickListener {
 
             FirebaseAuth.getInstance().signOut()
 
-            startActivity(Intent(this@MainActivity , LoginActivity::class.java))
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             finish()
         }
     }
-    }
+}
 

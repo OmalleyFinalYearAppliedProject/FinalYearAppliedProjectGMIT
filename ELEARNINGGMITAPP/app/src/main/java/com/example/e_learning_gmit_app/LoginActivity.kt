@@ -1,32 +1,26 @@
 package com.example.e_learning_gmit_app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Handler
 import android.text.TextUtils
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat.startActivity
-import com.google.android.gms.auth.account.WorkAccount.getClient
-import com.google.android.gms.auth.api.credentials.Credentials.getClient
-import com.google.android.gms.auth.api.phone.SmsRetriever.getClient
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignIn.getClient
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.safetynet.SafetyNet.getClient
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.android.synthetic.main.activity_dashboard.*
+import com.google.firebase.auth.OAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 class LoginActivity : AppCompatActivity() {
 
@@ -42,18 +36,19 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        printKeyHash()
+
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
 
-
-
         //Launches the Calender Activity inside of the users DashBoard
-        guestacc_btn.setOnClickListener{
+        guestacc_btn.setOnClickListener {
 
             startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
         }
 
-tv_register.setOnClickListener{
+        tv_register.setOnClickListener {
 
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
@@ -102,7 +97,6 @@ tv_register.setOnClickListener{
                         it <= ' '
                     }
 
-
                     val password: String = et_login_password.text.toString().trim {
                         it <= ' '
                     }
@@ -112,55 +106,54 @@ tv_register.setOnClickListener{
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
 
-                                // if the registration is successfully done
-                                if (task.isSuccessful) {
+                            // if the registration is successfully done
+                            if (task.isSuccessful) {
 
 
-
-                                    Toast.makeText(
-
-
-                                        this@LoginActivity,
-                                        "You are logged successfully",
-                                        Toast.LENGTH_SHORT
-
-                                    ).show()
+                                Toast.makeText(
 
 
-                                    val intent =
-                                        Intent(this@LoginActivity, DashboardActivity::class.java)
-                                    intent.flags =
-                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    this@LoginActivity,
+                                    "You are logged successfully",
+                                    Toast.LENGTH_SHORT
+
+                                ).show()
 
 
-                                    intent.putExtra(
+                                val intent =
+                                    Intent(this@LoginActivity, DashboardActivity::class.java)
+                                intent.flags =
+                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
 
-                                        "user_id",
-                                        FirebaseAuth.getInstance().currentUser!!.uid
-
-                                    )
-                                    intent.putExtra("email_id",email)
-                                    startActivity(intent)
-                                    finish()
-                                } else {
+                                intent.putExtra(
 
 
-                                    // If the registering is not successful then show error message.
+                                    "user_id",
+                                    FirebaseAuth.getInstance().currentUser!!.uid
 
-                                    Toast.makeText(
-
-                                        this@LoginActivity,
-                                        task.exception!!.message.toString(),
-                                        Toast.LENGTH_SHORT
-
-                                    ).show()
+                                )
+                                intent.putExtra("email_id", email)
+                                startActivity(intent)
+                                finish()
+                            } else {
 
 
-                                }
+                                // If the registering is not successful then show error message.
+
+                                Toast.makeText(
+
+                                    this@LoginActivity,
+                                    task.exception!!.message.toString(),
+                                    Toast.LENGTH_SHORT
+
+                                ).show()
 
 
                             }
+
+
+                        }
 
 
                 }
@@ -170,14 +163,13 @@ tv_register.setOnClickListener{
         }
 
 
-
         // Configure Google Sign In
 
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
 
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
@@ -205,7 +197,7 @@ tv_register.setOnClickListener{
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
             val exception = task.exception
-            if (task.isSuccessful){
+            if (task.isSuccessful) {
 
                 try {
                     // Google Sign In was successful, authenticate with Firebase
@@ -216,32 +208,53 @@ tv_register.setOnClickListener{
                     // Google Sign In failed, update UI appropriately
                     Log.w("LoginActivity", "Google sign in failed", e)
                 }
-                }else {
+            } else {
                 Log.w("LoginActivity", exception.toString())
 
-                }
             }
-
         }
+
+    }
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("LogInActivity", "signInWithCredential:success")
-                        val intent  = Intent(this ,  DashboardActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("LoginActivity", "signInWithCredential:failure", task.exception)
-                    }
-
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("LogInActivity", "signInWithCredential:success")
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("LoginActivity", "signInWithCredential:failure", task.exception)
                 }
+
+            }
+    }
+    private fun printKeyHash() {
+
+        try {
+
+            val info = packageManager.getPackageInfo(
+                "com.example.e_learning_gmit_app",
+                PackageManager.GET_SIGNATURES
+            )
+            for (signature in info.signatures) {
+                val md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray())
+                Log.e("KEYHASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+
+
+        } catch (e: NoSuchAlgorithmException) {
+
+        }
     }
 
-
-
+    private fun facebookSignIn() {
+    }
 
 }

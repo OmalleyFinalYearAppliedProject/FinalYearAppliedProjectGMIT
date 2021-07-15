@@ -12,24 +12,21 @@ class QuestionLobby : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question_lobby)
 
-
-
         val actionbar = supportActionBar
         actionbar!!.title = "Dashboard"
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
 
+        btn_start.setOnClickListener {
+
+            if (et_name.text.toString().isEmpty()) {
 
 
-        btn_start.setOnClickListener{
-
-            if(et_name.text.toString().isEmpty()){
-
-
-
-                Toast.makeText(this ,
-                    "Please enter your name " , Toast.LENGTH_SHORT).show()
-            }else {
+                Toast.makeText(
+                    this,
+                    "Please enter your name ", Toast.LENGTH_SHORT
+                ).show()
+            } else {
 
                 val intentQs = Intent(this, QuizQuestionsActivity::class.java)
                 startActivity(intentQs)
@@ -37,7 +34,6 @@ class QuestionLobby : AppCompatActivity() {
 
             }
         }
-
 
     }
 

@@ -23,35 +23,37 @@ class QuizFeed : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_feed)
 
         var rf = Retrofit.Builder()
-            .baseUrl(FeedInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
-
+            .baseUrl(FeedInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create())
+            .build()
 
         var API = rf.create(FeedInterface::class.java)
-        var call =  API.posts
+        var call = API.posts
 
         call?.enqueue(object : Callback<List<FeedModel?>?> {
 
-                override fun onFailure(call: Call<List<FeedModel?>?>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-                override fun onResponse(
-                    call: Call<List<FeedModel?>?>,
-                    response: Response<List<FeedModel?>?>
-                ) {
-                    var feedList : List<FeedModel>? = response.body() as List<FeedModel>
-                    var post = arrayOfNulls<String>(feedList!!.size)
+            override fun onFailure(call: Call<List<FeedModel?>?>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
 
-                    for (i in feedList!!.indices )
-                        post[i] = feedList!![i]!!.description
+            override fun onResponse(
+                call: Call<List<FeedModel?>?>,
+                response: Response<List<FeedModel?>?>
+            ) {
+                var feedList: List<FeedModel>? = response.body() as List<FeedModel>
+                var post = arrayOfNulls<String>(feedList!!.size)
 
-
-
-                    var adapter = ArrayAdapter<String>(applicationContext,android.R.layout.simple_dropdown_item_1line,post)
-                    listview.adapter = adapter
-
-                }
+                for (i in feedList!!.indices)
+                    post[i] = feedList!![i]!!.description
 
 
+                var adapter = ArrayAdapter<String>(
+                    applicationContext,
+                    android.R.layout.simple_dropdown_item_1line,
+                    post
+                )
+                listview.adapter = adapter
+
+            }
         })
     }
 

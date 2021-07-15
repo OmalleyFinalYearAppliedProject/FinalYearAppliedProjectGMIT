@@ -20,7 +20,6 @@ class userProfileActivity : AppCompatActivity() {
         actionbar.setDisplayHomeAsUpEnabled(true)
 
 
-
         mAuth = FirebaseAuth.getInstance()
         val currentuser = mAuth.currentUser
 
@@ -29,8 +28,8 @@ class userProfileActivity : AppCompatActivity() {
         email_txt.text = currentuser?.email
 
 
-
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

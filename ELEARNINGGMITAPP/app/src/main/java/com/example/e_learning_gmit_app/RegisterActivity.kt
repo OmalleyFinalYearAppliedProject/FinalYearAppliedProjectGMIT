@@ -18,15 +18,12 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-
-        tv_login.setOnClickListener{
+        tv_login.setOnClickListener {
 
             onBackPressed()
         }
-
 
         btn_register.setOnClickListener {
 
@@ -122,16 +119,9 @@ class RegisterActivity : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
 
                                     ).show()
-
-
                                 }
-
-
                             })
-
-
                 }
-
 
             }
         }

@@ -65,7 +65,6 @@ class DatabaseHandler(context: Context) :
             db.execSQL(selectQuery)
             return ArrayList()
         }
-
         var id: Int
         var name: String
         var email: String
@@ -99,7 +98,6 @@ class DatabaseHandler(context: Context) :
         db.close()
         return success
     }
-
     fun deleteUser(emp: userModelClass): Int {
 
         val db = this.writableDatabase
@@ -113,5 +111,4 @@ class DatabaseHandler(context: Context) :
         db.close()
         return success
     }
-
 }

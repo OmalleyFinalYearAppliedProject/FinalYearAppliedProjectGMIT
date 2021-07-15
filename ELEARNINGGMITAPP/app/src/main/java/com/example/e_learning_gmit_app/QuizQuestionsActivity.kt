@@ -10,18 +10,15 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
-class QuizQuestionsActivity : AppCompatActivity()  , View.OnClickListener {
-
+class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mCurrentPosition: Int = 1
     private var mQuestionsList: ArrayList<Question>? = null
     private var mSelectedOptionPosition: Int = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
-
 
         mQuestionsList = Constants.getQuestions()
 
@@ -36,9 +33,7 @@ class QuizQuestionsActivity : AppCompatActivity()  , View.OnClickListener {
 
     private fun setQuestion() {
 
-
         val question = mQuestionsList!![mCurrentPosition - 1]
-
 
         defaultOptionsView()
 
@@ -59,7 +54,6 @@ class QuizQuestionsActivity : AppCompatActivity()  , View.OnClickListener {
         tv_option_two.text = question.optionTwo
         tv_option_three.text = question.optionThree
         tv_option_four.text = question.optionFour
-
     }
 
     private fun defaultOptionsView() {
@@ -123,8 +117,10 @@ class QuizQuestionsActivity : AppCompatActivity()  , View.OnClickListener {
                         }
                         else -> {
 
-                            Toast.makeText(this, "You have successfully completed  the Quiz ",
-                                Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this, "You have successfully completed  the Quiz ",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
 
                     }
@@ -152,7 +148,7 @@ class QuizQuestionsActivity : AppCompatActivity()  , View.OnClickListener {
         }
     }
 
-    private fun  answerView(answer: Int , drawableView: Int) {
+    private fun answerView(answer: Int, drawableView: Int) {
         when (answer) {
 
             1 -> {
@@ -194,13 +190,10 @@ class QuizQuestionsActivity : AppCompatActivity()  , View.OnClickListener {
         }
     }
 
-    private fun selectedOptionView(tv: TextView, selectedOptionNum : Int)
-    {
+    private fun selectedOptionView(tv: TextView, selectedOptionNum: Int) {
 
         defaultOptionsView()
         mSelectedOptionPosition = selectedOptionNum
-
-
 
         tv.setTextColor(Color.parseColor("#363A43"))
         tv.setTypeface(tv.typeface, Typeface.BOLD)

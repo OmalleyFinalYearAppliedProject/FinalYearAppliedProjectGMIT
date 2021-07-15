@@ -9,16 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_row.view.*
 
 class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
-        RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
-
+    RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-                LayoutInflater.from(context).inflate(
-                        R.layout.item_row,
-                        parent,
-                        false
-                )
+            LayoutInflater.from(context).inflate(
+                R.layout.item_row,
+                parent,
+                false
+            )
         )
     }
 
@@ -34,10 +33,10 @@ class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
 
         if (position % 2 == 0) {
             holder.llMain.setBackgroundColor(
-                    ContextCompat.getColor(
-                            context,
-                            R.color.colorAccent
-                    )
+                ContextCompat.getColor(
+                    context,
+                    R.color.colorAccent
+                )
             )
 
         } else {
@@ -59,7 +58,6 @@ class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
             }
         }
     }
-
     /**
      * Gwt the number of items in the list
      */

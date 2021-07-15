@@ -1,7 +1,6 @@
 package com.example.e_learning_gmit_app
 
-data class Question (
-
+data class Question(
     val id: Int,
     val question: String,
     val image: Int,

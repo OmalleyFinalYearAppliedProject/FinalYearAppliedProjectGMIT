@@ -76,7 +76,7 @@ class CalenderActivity : AppCompatActivity() {
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
         if (!name.isEmpty() && !email.isEmpty()) {
             val status =
-                    databaseHandler.addUser(userModelClass(0, name, email))
+                databaseHandler.addUser(userModelClass(0, name, email))
             if (status > -1) {
                 Toast.makeText(applicationContext, "Record saved", Toast.LENGTH_LONG).show()
                 etName.text.clear()
@@ -86,12 +86,13 @@ class CalenderActivity : AppCompatActivity() {
             }
         } else {
             Toast.makeText(
-                    applicationContext,
-                    "Event Name or Event Date  cannot be blank",
-                    Toast.LENGTH_LONG
+                applicationContext,
+                "Event Name or Event Date  cannot be blank",
+                Toast.LENGTH_LONG
             ).show()
         }
     }
+
     /**
      * Method is used to show the Custom Dialog.
      */
@@ -116,7 +117,7 @@ class CalenderActivity : AppCompatActivity() {
 
             if (!name.isEmpty() && !email.isEmpty()) {
                 val status =
-                        databaseHandler.updateUser(userModelClass(userModelClass.id, name, email))
+                    databaseHandler.updateUser(userModelClass(userModelClass.id, name, email))
                 if (status > -1) {
                     Toast.makeText(applicationContext, "Record Updated.", Toast.LENGTH_LONG).show()
 
@@ -126,9 +127,9 @@ class CalenderActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(
-                        applicationContext,
-                        "Event Name or Event Date cannot be blank",
-                        Toast.LENGTH_LONG
+                    applicationContext,
+                    "Event Name or Event Date cannot be blank",
+                    Toast.LENGTH_LONG
                 ).show()
             }
         })
@@ -161,9 +162,9 @@ class CalenderActivity : AppCompatActivity() {
             val status = databaseHandler.deleteUser(userModelClass(empModelClass.id, "", ""))
             if (status > -1) {
                 Toast.makeText(
-                        applicationContext,
-                        "Event deleted successfully.",
-                        Toast.LENGTH_LONG
+                    applicationContext,
+                    "Event deleted successfully.",
+                    Toast.LENGTH_LONG
                 ).show()
 
                 setupListofDataIntoRecyclerView()
