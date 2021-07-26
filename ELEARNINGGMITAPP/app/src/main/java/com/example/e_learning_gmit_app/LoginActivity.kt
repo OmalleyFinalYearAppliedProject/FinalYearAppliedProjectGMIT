@@ -27,71 +27,79 @@ import com.google.firebase.auth.FacebookAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
+    // obj request code used by firebase
     companion object {
         private const val RC_SIGN_IN = 120
     }
 
+    // authenticating web services
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    //  FacebookSdk set for authentication
     var callbackManager: CallbackManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // DEV PRINTS KEY HASH TO Consol
         printKeyHash()
+        // Create obj instance of authentication
         mAuth = FirebaseAuth.getInstance()
+        // facebook sdk create insrance
         callbackManager = CallbackManager.Factory.create()
 
+        // event listener for user sign in
         facebook_sign_in.setReadPermissions("email")
         facebook_sign_in.setOnClickListener {
             facebookSignIn()
         }
 
+        // app displays in full screen
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-
-        //Launches the Calender Activity inside of the users DashBoard
+        // allows for a guest to sign in
         guestacc_btn.setOnClickListener {
 
+            //start Dashboard activity
             startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
         }
 
+        // call on register button routes user to
         tv_register.setOnClickListener {
 
+            //start Dashboard activity
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
 
-
+        // event listener for user login button
         btn_login.setOnClickListener {
-
             when {
 
-
+                // user on screen text boxes lambda expression
                 TextUtils.isEmpty(et_login_email.text.toString().trim {
 
+                    // null string
                     it <= ' '
                 }) -> {
-
+                    // display message to screen
                     Toast.makeText(
 
 
                         this@LoginActivity,
                         "Please enter email.",
                         Toast.LENGTH_SHORT
-
+                    // make visible in component
                     ).show()
                 }
-
-
                 TextUtils.isEmpty(et_login_password.text.toString().trim {
+
 
                     it <= ' '
                 }) -> {
 
                     Toast.makeText(
-
 
                         this@LoginActivity,
                         "Please enter password.",
@@ -260,6 +268,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // method allows for user to sign in using FACEBOOK ACCOUNT
     private fun facebookSignIn() {
 
 
@@ -271,7 +280,7 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onCancel() {
             }
-
+            // CATCHES ERORR TO CONSOLE
             override fun onError(error: FacebookException?) {
             }
         })

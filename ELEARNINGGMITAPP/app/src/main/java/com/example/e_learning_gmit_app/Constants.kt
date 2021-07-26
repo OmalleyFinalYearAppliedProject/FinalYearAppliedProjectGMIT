@@ -2,6 +2,9 @@ package com.example.e_learning_gmit_app
 
 object Constants{
 
+
+
+    // function with a list of questions hard coded and displayed in quiz questions activity
     fun getQuestions(): ArrayList<Question>
     {
         val questionsList = ArrayList<Question>()
@@ -60,6 +63,8 @@ object Constants{
 
 
         )
+
+        // adds questions to stack
         questionsList.add(que1)
         questionsList.add(que2)
         questionsList.add(que3)
@@ -70,6 +75,8 @@ object Constants{
         questionsList.add(que8)
         questionsList.add(que9)
         questionsList.add(que10)
+
+        // reurun as a list
         return questionsList
     }
 }

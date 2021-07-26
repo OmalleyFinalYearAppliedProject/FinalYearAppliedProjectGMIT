@@ -11,6 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper
 class DatabaseHandler(context: Context) :
         SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
+
+    // object dataabse holdign user details
     companion object {
         private val DATABASE_VERSION = 1
         private val DATABASE_NAME = "UserDatabase"
@@ -22,6 +24,7 @@ class DatabaseHandler(context: Context) :
         private val KEY_EMAIL = "email"
     }
 
+    // creates a  simple SQLite db
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
@@ -34,6 +37,7 @@ class DatabaseHandler(context: Context) :
         onCreate(db)
     }
 
+    // method adds a user to sqllite db
     fun addUser(use: userModelClass): Long {
         val db = this.writableDatabase
 
@@ -61,10 +65,12 @@ class DatabaseHandler(context: Context) :
         try {
             cursor = db.rawQuery(selectQuery, null)
 
+            // break point catch erros
         } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
+        // instance variable
         var id: Int
         var name: String
         var email: String
@@ -83,6 +89,8 @@ class DatabaseHandler(context: Context) :
         return empList
     }
 
+
+    // function to update user information
     fun updateUser(emp: userModelClass): Int {
 
         val db = this.writableDatabase
@@ -98,13 +106,15 @@ class DatabaseHandler(context: Context) :
         db.close()
         return success
     }
+
+    // function to delete a record from the database
     fun deleteUser(emp: userModelClass): Int {
 
         val db = this.writableDatabase
         val contentValues = ContentValues()
 
         contentValues.put(KEY_ID, emp.id) // EmpModelClass id
-        // Deleting Row
+        // Deleting Row meesage
         val success = db.delete(TABLE_CONTACTS, KEY_ID + "=" + emp.id, null)
 
         // Closing database connection

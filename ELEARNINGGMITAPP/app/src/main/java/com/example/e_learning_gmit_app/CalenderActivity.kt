@@ -16,12 +16,17 @@ class CalenderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calender)
 
+
+        // method call adds user record to list
         btnAdd.setOnClickListener { view ->
 
+            //call to add record to stack
             addRecord()
         }
-
+        // method call to start data list in calender activity
         setupListofDataIntoRecyclerView()
+
+
 
         val actionbar = supportActionBar
         actionbar!!.title = "Dashboard"
@@ -30,7 +35,7 @@ class CalenderActivity : AppCompatActivity() {
 
 
     }
-
+    // returns user to the last visited
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -110,6 +115,8 @@ class CalenderActivity : AppCompatActivity() {
 
         updateDialog.tvUpdate.setOnClickListener(View.OnClickListener {
 
+
+            // user details cast to strings
             val name = updateDialog.etUpdateName.text.toString()
             val email = updateDialog.etUpdateEmailId.text.toString()
 
@@ -126,6 +133,8 @@ class CalenderActivity : AppCompatActivity() {
                     updateDialog.dismiss() // Dialog will be dismissed
                 }
             } else {
+
+                //event message displayd to user screen
                 Toast.makeText(
                     applicationContext,
                     "Event Name or Event Date cannot be blank",
@@ -161,12 +170,13 @@ class CalenderActivity : AppCompatActivity() {
 
             val status = databaseHandler.deleteUser(userModelClass(empModelClass.id, "", ""))
             if (status > -1) {
+                // event message displayed to user when successful
                 Toast.makeText(
                     applicationContext,
                     "Event deleted successfully.",
                     Toast.LENGTH_LONG
                 ).show()
-
+                // displays list in a view in application
                 setupListofDataIntoRecyclerView()
             }
 

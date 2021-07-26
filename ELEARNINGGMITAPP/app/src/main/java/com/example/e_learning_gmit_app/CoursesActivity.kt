@@ -15,12 +15,18 @@ class CoursesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.about_courses_activity)
 
+
+
+
+        // remove the taskbar from top of screen
         val actionbar = supportActionBar
         actionbar!!.title = "Dashboard"
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
 
     }
+
+    // method for back button to return user to previous screen
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
