@@ -82,6 +82,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
+    // Data bind view
     override fun onClick(v: View?) {
 
         when (v?.id) {

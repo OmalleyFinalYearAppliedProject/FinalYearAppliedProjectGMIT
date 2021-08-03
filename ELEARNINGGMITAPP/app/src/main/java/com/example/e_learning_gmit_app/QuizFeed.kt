@@ -22,6 +22,8 @@ class QuizFeed : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_feed)
 
+
+        // create instance of retrofit client
         var rf = Retrofit.Builder()
             .baseUrl(FeedInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -42,6 +44,7 @@ class QuizFeed : AppCompatActivity() {
                 var feedList: List<FeedModel>? = response.body() as List<FeedModel>
                 var post = arrayOfNulls<String>(feedList!!.size)
 
+                // loop over posts
                 for (i in feedList!!.indices)
                     post[i] = feedList!![i]!!.description
 

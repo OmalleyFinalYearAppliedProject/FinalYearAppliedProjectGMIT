@@ -59,7 +59,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
         }
     }
     /**
-     * Gwt the number of items in the list
+     * Get the number of items in the list
      */
     override fun getItemCount(): Int {
         return items.size
