@@ -21,6 +21,7 @@ router.get('/questions', async (req, res) => {
 
 
 
+// test 
 // get all posts 
 router.get('/posts', async (req, res) => {
     try {
