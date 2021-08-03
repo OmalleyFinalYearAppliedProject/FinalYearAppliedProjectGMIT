@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const Question = require('./models/Question') // includes our model
-const Quiz = require('./models/Quiz') // includes our model
+const Question = require('./models/Question') 
+const Quiz = require('./models/Quiz') 
+const Post = require('./models/Post') 
+
+
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -15,6 +18,40 @@ router.get('/questions', async (req, res) => {
         return res.status(500).json({"error":error})
     }
 })
+
+
+
+// get all posts 
+router.get('/posts', async (req, res) => {
+    try {
+        const posts = await Post.find()
+        return res.status(200).json(posts)
+    } catch (error) {
+        return res.status(500).json({"error":error})
+    }
+})
+
+
+
+// get one post 
+router.get('/posts/:id', async (req, res) => {
+    try {
+        const _id = req.params.id 
+
+        const post = await Post.findOne({_id})        
+        if(!post){
+            return res.status(404).json({})
+        }else{
+            return res.status(200).json(question)
+        }
+    } catch (error) {
+        return res.status(500).json({"error":error})
+    }
+})
+
+
+
+
 
 // get one quiz question
 router.get('/questions/:id', async (req, res) => {
@@ -192,7 +229,7 @@ router.delete('/quizzes/:id', async (req, res) => {
 })
 
 
-// this one is just a test
+// landing page
 router.get('/', (req, res) => {
     res.send('Piece of cake learning server')
 })

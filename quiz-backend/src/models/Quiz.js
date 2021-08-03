@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+
+
+// Quiz schema for db
 const QuizSchema = new mongoose.Schema({
     name : String,
     link : String,

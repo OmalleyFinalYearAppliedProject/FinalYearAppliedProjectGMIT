@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+
+// Question schema for db
+
 const QuestionSchema = new mongoose.Schema({
     description: String,
     alternatives: [
