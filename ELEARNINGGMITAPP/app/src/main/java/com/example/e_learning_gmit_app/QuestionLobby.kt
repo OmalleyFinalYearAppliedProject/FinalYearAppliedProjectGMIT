@@ -34,6 +34,7 @@ class QuestionLobby : AppCompatActivity() {
             } else {
                 // Start activity once entered
                 val intentQs = Intent(this, QuizQuestionsActivity::class.java)
+                intent.putExtra(Constants.USER_NAME,et_name.text.toString())
                 startActivity(intentQs)
                 // end
                 finish()

@@ -2,7 +2,9 @@ package com.example.e_learning_gmit_app
 
 object Constants{
 
-
+    const val USER_NAME: String = "user"
+    const val TOTAL_QUESTIONS: String = "total_q"
+    const val Correct_Ans: String = "correct_q"
 
     // function with a list of questions hard coded and displayed in quiz questions activity
     fun getQuestions(): ArrayList<Question>

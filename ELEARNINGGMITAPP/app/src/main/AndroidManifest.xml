@@ -17,7 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ELEARNINGGMITAPP"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PostsActivity"></activity>
+        <activity android:name=".ResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
+        <activity android:name=".PostsActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
