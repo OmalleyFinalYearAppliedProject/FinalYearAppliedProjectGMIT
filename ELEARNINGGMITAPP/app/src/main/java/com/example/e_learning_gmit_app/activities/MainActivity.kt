@@ -1,11 +1,11 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.e_learning_gmit_app.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_question_lobby.*
 
 class MainActivity : AppCompatActivity() {
 

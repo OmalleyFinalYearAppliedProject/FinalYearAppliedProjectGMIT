@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:background="#41c29d
 "
-    tools:context=".QuestionLobby">
+    tools:context=".activities.QuestionLobby">
 
     <TextView
         android:id="@+id/tv_app_name"

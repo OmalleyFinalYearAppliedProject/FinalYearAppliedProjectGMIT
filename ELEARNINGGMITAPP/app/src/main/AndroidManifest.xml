@@ -17,11 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ELEARNINGGMITAPP"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ResultActivity"
+        <activity android:name=".activities.ResultActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             ></activity>
-        <activity android:name=".PostsActivity" />
+        <activity android:name=".activities.PostsActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -49,18 +49,18 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizFeed" />
+        <activity android:name=".activities.QuizFeed" />
         <activity
-            android:name=".CalenderActivity"
+            android:name=".activities.CalenderActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".CoursesActivity" />
-        <activity android:name=".userProfileActivity" />
-        <activity android:name=".QuestionLobby" />
+        <activity android:name=".activities.CoursesActivity" />
+        <activity android:name=".activities.userProfileActivity" />
+        <activity android:name=".activities.QuestionLobby" />
         <activity
-            android:name=".QuizQuestionsActivity"
+            android:name=".activities.QuizQuestionsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,20 +69,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateVisible" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".DashboardActivity"
+            android:name=".activities.DashboardActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
     </application>

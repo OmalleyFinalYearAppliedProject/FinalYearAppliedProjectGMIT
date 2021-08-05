@@ -1,4 +1,4 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.sqlitedb
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.e_learning_gmit_app.R
+import com.example.e_learning_gmit_app.activities.CalenderActivity
+import com.example.e_learning_gmit_app.models.userModelClass
 import kotlinx.android.synthetic.main.item_row.view.*
 
 class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
@@ -41,7 +44,9 @@ class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
 
         } else {
 
-            holder.llMain.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite))
+            holder.llMain.setBackgroundColor(ContextCompat.getColor(context,
+                R.color.colorWhite
+            ))
         }
 
         holder.ivEdit.setOnClickListener { view ->

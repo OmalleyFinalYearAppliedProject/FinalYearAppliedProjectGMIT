@@ -1,4 +1,4 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.e_learning_gmit_app.R
 import com.facebook.*
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -185,7 +186,9 @@ class LoginActivity : AppCompatActivity() {
         // Map sign in intent to google client
         val signInIntent = googleSignInClient.signInIntent
         // Begin activity
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        startActivityForResult(signInIntent,
+            RC_SIGN_IN
+        )
     }
 
     /** Validate user request on firebase api result */

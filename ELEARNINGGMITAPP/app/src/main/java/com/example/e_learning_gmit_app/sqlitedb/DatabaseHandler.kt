@@ -1,4 +1,4 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.sqlitedb
 
 
 import android.content.ContentValues
@@ -7,9 +7,13 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.e_learning_gmit_app.models.userModelClass
 
 class DatabaseHandler(context: Context) :
-        SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+        SQLiteOpenHelper(context,
+            DATABASE_NAME, null,
+            DATABASE_VERSION
+        ) {
 
 
     // object dataabse holdign user details
@@ -81,7 +85,11 @@ class DatabaseHandler(context: Context) :
                 name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
                 email = cursor.getString(cursor.getColumnIndex(KEY_EMAIL))
 
-                val emp = userModelClass(id = id, name = name, email = email)
+                val emp = userModelClass(
+                    id = id,
+                    name = name,
+                    email = email
+                )
                 empList.add(emp)
 
             } while (cursor.moveToNext())

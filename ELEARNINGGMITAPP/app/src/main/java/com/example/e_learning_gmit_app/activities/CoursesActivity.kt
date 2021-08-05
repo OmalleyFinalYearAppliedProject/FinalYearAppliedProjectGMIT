@@ -1,12 +1,8 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-
-import kotlinx.android.synthetic.main.activity_splash.*
+import com.example.e_learning_gmit_app.R
 
 class CoursesActivity : AppCompatActivity() {
 
@@ -14,7 +10,6 @@ class CoursesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.about_courses_activity)
-
 
 
 

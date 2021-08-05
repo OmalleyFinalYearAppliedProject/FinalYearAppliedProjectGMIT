@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorLightGray"
     android:padding="@dimen/box_inset_layout_padding"
-    tools:context=".BoardsActivity"
+    tools:context=".activities.BoardsActivity"
     tools:deviceIds="wear">
 
     <FrameLayout

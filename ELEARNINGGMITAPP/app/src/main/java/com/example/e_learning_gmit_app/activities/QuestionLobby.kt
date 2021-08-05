@@ -1,10 +1,11 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
+import com.example.e_learning_gmit_app.R
+import com.example.e_learning_gmit_app.data.Constants
 import kotlinx.android.synthetic.main.activity_question_lobby.*
 
 class QuestionLobby : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import android.content.Intent
 import android.graphics.Color
@@ -6,9 +6,11 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.e_learning_gmit_app.R
+import com.example.e_learning_gmit_app.data.Constants
+import com.example.e_learning_gmit_app.data.Question
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
@@ -82,7 +84,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             option.setTextColor(Color.parseColor("#7A8089"))
             option.typeface = Typeface.DEFAULT
             // change display colour of box
-            option.background = ContextCompat.getDrawable(this, R.drawable.default_option_border_bg)
+            option.background = ContextCompat.getDrawable(this,
+                R.drawable.default_option_border_bg
+            )
         }
     }
 
@@ -135,13 +139,17 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
                     if (question!!.correctAnswer != mSelectedOptionPosition) {
 
-                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                        answerView(mSelectedOptionPosition,
+                            R.drawable.wrong_option_border_bg
+                        )
                     }else
                     {
                         mCorrectAnswers++
                     }
 
-                    answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+                    answerView(question.correctAnswer,
+                        R.drawable.correct_option_border_bg
+                    )
 
                     if (mCurrentPosition == mQuestionsList!!.size) {
 
@@ -184,6 +192,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         tv.setTextColor(Color.parseColor("#363A43"))
         tv.setTypeface(tv.typeface, Typeface.BOLD)
-        tv.background = ContextCompat.getDrawable(this, R.drawable.selected_option_border_bg)
+        tv.background = ContextCompat.getDrawable(this,
+            R.drawable.selected_option_border_bg
+        )
     }
 }

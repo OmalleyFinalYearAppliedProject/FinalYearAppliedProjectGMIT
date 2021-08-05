@@ -1,4 +1,4 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.models
 
 /**
  *  DATA Model class holidng structure of users

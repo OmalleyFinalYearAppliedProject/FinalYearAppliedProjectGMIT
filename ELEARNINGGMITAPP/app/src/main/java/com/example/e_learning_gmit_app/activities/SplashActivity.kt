@@ -1,10 +1,11 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.e_learning_gmit_app.R
 
 class SplashActivity : AppCompatActivity() {
 

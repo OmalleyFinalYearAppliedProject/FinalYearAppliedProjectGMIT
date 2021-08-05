@@ -1,13 +1,16 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
 import android.app.AlertDialog
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.e_learning_gmit_app.sqlitedb.DatabaseHandler
+import com.example.e_learning_gmit_app.sqlitedb.ItemAdapter
+import com.example.e_learning_gmit_app.R
+import com.example.e_learning_gmit_app.models.userModelClass
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.dialog_update.*
 
@@ -50,7 +53,11 @@ class CalenderActivity : AppCompatActivity() {
 
             rvItemsList.layoutManager = LinearLayoutManager(this)
 
-            val itemAdapter = ItemAdapter(this, getItemsList())
+            val itemAdapter =
+                ItemAdapter(
+                    this,
+                    getItemsList()
+                )
 
             rvItemsList.adapter = itemAdapter
         } else {
@@ -65,7 +72,8 @@ class CalenderActivity : AppCompatActivity() {
      */
     private fun getItemsList(): ArrayList<userModelClass> {
         //creating the instance of DatabaseHandler class
-        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+        val databaseHandler: DatabaseHandler =
+            DatabaseHandler(this)
         //calling the viewUser method of DatabaseHandler class to read the records
         val empList: ArrayList<userModelClass> = databaseHandler.viewUser()
 
@@ -78,10 +86,17 @@ class CalenderActivity : AppCompatActivity() {
         val name = etName.text.toString()
         val email = etEmailId.text.toString()
 
-        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+        val databaseHandler: DatabaseHandler =
+            DatabaseHandler(this)
         if (!name.isEmpty() && !email.isEmpty()) {
             val status =
-                databaseHandler.addUser(userModelClass(0, name, email))
+                databaseHandler.addUser(
+                    userModelClass(
+                        0,
+                        name,
+                        email
+                    )
+                )
             if (status > -1) {
                 Toast.makeText(applicationContext, "Record saved", Toast.LENGTH_LONG).show()
                 etName.text.clear()
@@ -104,7 +119,9 @@ class CalenderActivity : AppCompatActivity() {
     fun updateRecordDialog(userModelClass: userModelClass) {
 
 
-        val updateDialog = Dialog(this, R.style.Theme_Dialog)
+        val updateDialog = Dialog(this,
+            R.style.Theme_Dialog
+        )
         updateDialog.setCancelable(false)
 
 
@@ -120,11 +137,18 @@ class CalenderActivity : AppCompatActivity() {
             val name = updateDialog.etUpdateName.text.toString()
             val email = updateDialog.etUpdateEmailId.text.toString()
 
-            val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+            val databaseHandler: DatabaseHandler =
+                DatabaseHandler(this)
 
             if (!name.isEmpty() && !email.isEmpty()) {
                 val status =
-                    databaseHandler.updateUser(userModelClass(userModelClass.id, name, email))
+                    databaseHandler.updateUser(
+                        userModelClass(
+                            userModelClass.id,
+                            name,
+                            email
+                        )
+                    )
                 if (status > -1) {
                     Toast.makeText(applicationContext, "Record Updated.", Toast.LENGTH_LONG).show()
 
@@ -164,11 +188,18 @@ class CalenderActivity : AppCompatActivity() {
         builder.setPositiveButton("Yes") { dialogInterface, which ->
 
             //creating the instance of DatabaseHandler class
-            val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+            val databaseHandler: DatabaseHandler =
+                DatabaseHandler(this)
             //calling the deleteUser method of DatabaseHandler class to delete record
 
 
-            val status = databaseHandler.deleteUser(userModelClass(empModelClass.id, "", ""))
+            val status = databaseHandler.deleteUser(
+                userModelClass(
+                    empModelClass.id,
+                    "",
+                    ""
+                )
+            )
             if (status > -1) {
                 // event message displayed to user when successful
                 Toast.makeText(

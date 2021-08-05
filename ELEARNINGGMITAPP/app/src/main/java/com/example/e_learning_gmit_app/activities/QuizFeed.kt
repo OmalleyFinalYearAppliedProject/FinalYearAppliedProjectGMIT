@@ -1,21 +1,17 @@
-package com.example.e_learning_gmit_app
+package com.example.e_learning_gmit_app.activities
 
-import android.graphics.Color
-import android.graphics.LinearGradient
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.GsonBuilder
+import com.example.e_learning_gmit_app.R
+import com.example.e_learning_gmit_app.`interface`.FeedInterface
+import com.example.e_learning_gmit_app.models.FeedModel
 import kotlinx.android.synthetic.main.activity_quiz_feed.*
-import okhttp3.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 
 class QuizFeed : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
