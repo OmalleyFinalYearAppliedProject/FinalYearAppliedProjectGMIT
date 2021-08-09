@@ -13,6 +13,6 @@ interface PostInterface {
 
     // OBJ HOLDS URL TO SERVER
     companion object {
-        const val BASE_URL = "https://cloud-backend-js.herokuapp.com"
+        const val BASE_URL = "http://localhost:3333"
     }
 }

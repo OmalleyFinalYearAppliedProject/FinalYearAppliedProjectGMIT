@@ -44,6 +44,7 @@
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:id="@+id/calenderBox_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -51,21 +52,24 @@
                     >
 
                     <ImageView
-                        android:layout_width="103dp"
+                        android:layout_width="match_parent"
+
                         android:layout_height="84dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="20dp"
+
                         android:src="@drawable/calender" />
 
                     <TextView
                         android:id="@+id/calender_btn"
-                        android:layout_width="119dp"
+                        android:layout_width="match_parent"
+
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="Calender"
-                        android:textColor="@color/white"
-                        android:gravity="center"
 
-                        android:textSize="25sp" />
+                        android:gravity="center"
+                        android:text="Calendar"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
 
                 </LinearLayout>
 
@@ -85,6 +89,7 @@
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:id="@+id/messagingBox_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -92,21 +97,24 @@
                     >
 
                     <ImageView
-                        android:layout_width="103dp"
+                        android:layout_width="match_parent"
+
                         android:layout_height="84dp"
-                        android:src="@drawable/messaging"
-                        android:layout_marginTop="12dp"/>
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/messaging" />
+
+
                     <TextView
                         android:id="@+id/messaging_btn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Messaging"
+                        android:text="Posts"
                         android:foreground="?attr/selectableItemBackground"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:layout_marginTop="20dp"/>
-
-
+                        android:layout_marginTop="20dp"
+                        />
 
 
 
@@ -129,6 +137,7 @@
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:id="@+id/my_accBox_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -136,18 +145,21 @@
                     >
 
                     <ImageView
-                        android:layout_width="103dp"
+                        android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:src="@drawable/accsettings"
-                        android:layout_marginTop="12dp"/>
+                        android:layout_marginTop="20dp"
+                        />
                     <TextView
                         android:id="@+id/my_acc_btn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="My Account"
-                        android:textSize="16sp"
+                        android:textSize="22sp"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:layout_marginTop="20dp"/>
+                        android:layout_marginTop="20dp"
+                        />
 
                 </LinearLayout>
 
@@ -177,17 +189,18 @@
                     >
 
                     <ImageView
+                        android:layout_width="match_parent"
 
-                        android:layout_width="103dp"
                         android:layout_height="84dp"
                         android:src="@drawable/info"
-                        android:layout_marginTop="12dp"/>
+                        android:layout_marginTop="20dp"/>
                     <TextView
                         android:id="@+id/app_info_btn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="About Us"
-                        android:textSize="16sp"
+                        android:textSize="22sp"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:layout_marginTop="20dp"/>
 
@@ -195,11 +208,6 @@
 
 
             </androidx.cardview.widget.CardView>
-
-
-
-
-
 
 
             <androidx.cardview.widget.CardView
@@ -212,6 +220,7 @@
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:id="@+id/quizBox_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -219,17 +228,19 @@
                     >
 
                     <ImageView
-                        android:layout_width="103dp"
+                        android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:src="@drawable/quizgames"
-                        android:layout_marginTop="12dp"/>
+                        android:layout_marginTop="20dp"/>
                     <TextView
                         android:id="@+id/quiz_btn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Quizzes"
-                        android:textSize="16sp"
+                        android:textSize="22sp"
                         android:textColor="@color/white"
+                        android:textAlignment="center"
+
                         android:layout_marginTop="20dp"/>
 
                 </LinearLayout>

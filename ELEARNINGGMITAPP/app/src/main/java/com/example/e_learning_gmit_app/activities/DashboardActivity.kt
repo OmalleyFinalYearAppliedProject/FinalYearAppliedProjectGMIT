@@ -19,7 +19,7 @@ class DashboardActivity : AppCompatActivity() {
         //Launches the Messages  Activity inside of the user DashBoard
         messaging_btn.setOnClickListener {
 
-            startActivity(Intent(this@DashboardActivity, QuestionLobby::class.java))
+            startActivity(Intent(this@DashboardActivity, PostsActivity::class.java))
         }
         //Launches the about app , Describes app to user  Activity inside of the users DashBoard
         app_info_btn.setOnClickListener {
