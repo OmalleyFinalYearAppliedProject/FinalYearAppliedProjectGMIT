@@ -3,11 +3,15 @@ package com.example.e_learning_gmit_app.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.e_learning_gmit_app.R
 import com.example.e_learning_gmit_app.`interface`.FeedInterface
 import com.example.e_learning_gmit_app.`interface`.PostInterface
+import com.example.e_learning_gmit_app.client.RetrofitClient
+import com.example.e_learning_gmit_app.models.DefaultResponse
 import com.example.e_learning_gmit_app.models.FeedModel
 import com.example.e_learning_gmit_app.models.PostModel
+import kotlinx.android.synthetic.main.activity_posts.*
 import kotlinx.android.synthetic.main.activity_quiz_feed.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,41 +25,63 @@ class PostsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_posts)
 
 
+        buttonCreatePost.setOnClickListener {
 
-        // create instance of retrofit client
-        var rf = Retrofit.Builder()
-            .baseUrl(FeedInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        var API = rf.create(PostInterface::class.java)
-        var call = API.posts
+            val title = editPostTitle.text.toString().trim()
+            val active = editPostActive.text.toString().trim()
+            val student = editPostStudent.text.toString().trim()
+            val teacher = editPostTeacher.text.toString().trim()
 
-        call?.enqueue(object : Callback<List<PostModel?>?> {
+            if(title.isEmpty()){
 
-            override fun onFailure(call: Call<List<PostModel?>?>, t: Throwable) {
-                TODO("Not yet implemented")
+
+                editPostTitle.error = "Title Required"
+                editPostTitle.requestFocus()
+                return@setOnClickListener
             }
 
-            override fun onResponse(
-                call: Call<List<PostModel?>?>,
-                response: Response<List<PostModel?>?>
-            ) {
-                var postList: List<PostModel>? = response.body() as List<PostModel>
-                var post = arrayOfNulls<String>(postList!!.size)
-
-                // loop over posts
-                for (i in postList!!.indices)
-                    post[i] = postList!![i]!!.title
 
 
-                var adapter = ArrayAdapter<String>(
-                    applicationContext,
-                    android.R.layout.simple_dropdown_item_1line,
-                    post
-                )
-                listview.adapter = adapter
+            if(active.isEmpty()){
+
+
+                editPostActive.error = "Active Post  Required"
+                editPostActive.requestFocus()
+                return@setOnClickListener
             }
-        })
+
+
+
+            if(student.isEmpty()){
+
+
+                editPostStudent.error = "Y / N Required"
+                editPostStudent.requestFocus()
+                return@setOnClickListener
+            }
+
+
+            if(teacher.isEmpty()){
+
+
+                editPostTeacher.error = "Teacher Y / N status Required"
+                editPostTeacher.requestFocus()
+                return@setOnClickListener
+            }
+
+
+            RetrofitClient.instance.createPost(title, active, student, teacher)
+                .enqueue(object: Callback<DefaultResponse>{
+                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                        Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                    }
+                })
+        }
     }
 
 }
