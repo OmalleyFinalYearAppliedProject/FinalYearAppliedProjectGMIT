@@ -1,6 +1,7 @@
 package com.example.e_learning_gmit_app.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.e_learning_gmit_app.R
 import com.google.firebase.auth.FirebaseAuth
@@ -15,6 +16,9 @@ class userProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
+
+        // app displays in full screen
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         // Provide action bar on top of component
         val actionbar = supportActionBar
 

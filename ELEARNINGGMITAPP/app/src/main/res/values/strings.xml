@@ -17,5 +17,9 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="facebook_app_id">4511074535589965</string>
     <string name="fb_login_protocol_scheme">fb4511074535589965</string>
+    <string name="linktogit">
+    <a href= "https://github.com/OmalleyFinalYearAppliedProject/FinalYearAppliedProjectGMIT">Find Updates via Github</a>
+    </string>
 
+        <string name="hyperlink">Find App Updates via <a href="https://github.com/OmalleyFinalYearAppliedProject/FinalYearAppliedProjectGMIT">Github</a></string>
 </resources>

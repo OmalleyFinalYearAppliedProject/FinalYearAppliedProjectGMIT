@@ -17,11 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ELEARNINGGMITAPP"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.ResultActivity"
+        <activity android:name=".activities.AboutUs"
+
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
-        <activity android:name=".activities.PostsActivity" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activities.ResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.PostsActivity"
+
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -54,7 +62,9 @@
             android:name=".activities.CalenderActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activities.CoursesActivity" />
-        <activity android:name=".activities.userProfileActivity" />
+        <activity android:name=".activities.userProfileActivity"
+
+            />
         <activity android:name=".activities.QuestionLobby" />
         <activity
             android:name=".activities.QuizQuestionsActivity"
@@ -84,7 +94,7 @@
         <activity
             android:name=".activities.DashboardActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>
