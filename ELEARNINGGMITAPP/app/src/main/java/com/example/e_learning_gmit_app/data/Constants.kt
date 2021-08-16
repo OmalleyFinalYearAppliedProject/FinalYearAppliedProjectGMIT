@@ -4,9 +4,12 @@ import com.example.e_learning_gmit_app.R
 
 object Constants{
 
-    const val USER_NAME: String = "user"
+    const val USER_NAME: String = "user_name"
     const val TOTAL_QUESTIONS: String = "total_q"
     const val Correct_Ans: String = "correct_q"
+    const val Quiz_Attempts: String = "quiz_attempt"
+    var noOfQuizzesTaken: Int = 1
+
 
     // function with a list of questions hard coded and displayed in quiz questions activity
     fun getQuestions(): ArrayList<Question>

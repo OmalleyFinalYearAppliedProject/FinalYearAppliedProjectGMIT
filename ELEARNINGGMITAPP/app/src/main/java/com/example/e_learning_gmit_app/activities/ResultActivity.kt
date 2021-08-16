@@ -14,20 +14,27 @@ class ResultActivity : AppCompatActivity() {
 
         // instance variables
         val username = intent.getStringExtra(Constants.USER_NAME)
-        tv_name.text = username
+        tv_name.text =username
 
 
         val totalQs  = intent.getIntExtra(Constants.TOTAL_QUESTIONS,0)
         val correctAns   = intent.getIntExtra(Constants.Correct_Ans,0)
-
+        val noOfQuizzesTaken   = intent.getIntExtra(Constants.Correct_Ans,0)
 
         // bind user score from constants
         tv_score.text = "Your Score is $correctAns out of $totalQs"
+        tv_attempt.text = "Attempt No. $noOfQuizzesTaken "
 
         // return user to home
         btn_finish.setOnClickListener{
 
             startActivity(Intent(this, DashboardActivity::class.java))
+        }
+
+        // return user to home
+        btn_retry.setOnClickListener{
+
+            startActivity(Intent(this, QuizQuestionsActivity::class.java))
         }
     }
 }

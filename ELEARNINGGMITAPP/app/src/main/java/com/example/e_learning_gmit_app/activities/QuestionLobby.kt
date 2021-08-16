@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.e_learning_gmit_app.R
 import com.example.e_learning_gmit_app.data.Constants
+import com.example.e_learning_gmit_app.data.Constants.noOfQuizzesTaken
 import kotlinx.android.synthetic.main.activity_question_lobby.*
 
 class QuestionLobby : AppCompatActivity() {
@@ -20,7 +21,6 @@ class QuestionLobby : AppCompatActivity() {
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
 
-
         // Button event Handler
 
         btn_start.setOnClickListener {
@@ -33,9 +33,11 @@ class QuestionLobby : AppCompatActivity() {
                     "Please enter your name ", Toast.LENGTH_SHORT
                 ).show()
             } else {
+
                 // Start activity once entered
                 val intentQs = Intent(this, QuizQuestionsActivity::class.java)
                 intent.putExtra(Constants.USER_NAME,et_name.text.toString())
+                noOfQuizzesTaken++;
                 startActivity(intentQs)
                 // end
                 finish()

@@ -64,7 +64,7 @@
         app:layout_constraintHorizontal_bias="1.0"
 
         android:text="Logout"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/bachground"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

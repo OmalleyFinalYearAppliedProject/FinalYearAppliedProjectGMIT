@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.e_learning_gmit_app.R
 import com.example.e_learning_gmit_app.data.Constants
+import com.example.e_learning_gmit_app.data.Constants.noOfQuizzesTaken
 import com.example.e_learning_gmit_app.data.Question
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
@@ -21,15 +22,18 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mSelectedOptionPosition: Int = 0
     private var  mCorrectAnswers: Int = 0
     private var mUserName: String?  = null
+    val qtitle: String = "Unix Terminal Quiz"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
-
 
         mUserName = intent.getStringExtra(Constants.USER_NAME)
         // Load array list of questions
         mQuestionsList = Constants.getQuestions()
 
+
+        tv_quiz_title.text = qtitle
         //load question
         setQuestion()
         //instantiate questions options
@@ -124,13 +128,14 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         else -> {
 
 
-
                             val intent = Intent(this , ResultActivity::class.java)
+
                             intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.Quiz_Attempts, noOfQuizzesTaken)
                             intent.putExtra(Constants.Correct_Ans, mCorrectAnswers)
                             intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
-                            startActivity(intent)
 
+                            startActivity(intent)
 
                         }
                     }
@@ -161,6 +166,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+
     }
 
     private fun answerView(answer: Int, drawableView: Int) {

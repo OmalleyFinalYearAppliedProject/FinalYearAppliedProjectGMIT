@@ -16,6 +16,17 @@
         >
 
         <TextView
+            android:id="@+id/tv_quiz_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:text="Header"/>
+
+
+        <TextView
             android:id="@+id/tv_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
