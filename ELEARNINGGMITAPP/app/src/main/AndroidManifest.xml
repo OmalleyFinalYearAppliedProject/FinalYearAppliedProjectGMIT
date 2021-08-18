@@ -57,7 +57,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.QuizFeed" />
+        <activity android:name=".activities.PostFeed" />
         <activity
             android:name=".activities.CalenderActivity"
             android:windowSoftInputMode="adjustResize" />

@@ -17,7 +17,13 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(Intent(this@DashboardActivity, CalenderActivity::class.java))
         }
         //Launches the Messages  Activity inside of the user DashBoard
-        messaging_btn.setOnClickListener {
+        postsfeed_btn.setOnClickListener {
+
+            startActivity(Intent(this@DashboardActivity, PostFeed::class.java))
+        }
+
+        //Launches the create Post Activity in the user Dashboard
+        createpost_btn.setOnClickListener {
 
             startActivity(Intent(this@DashboardActivity, PostsActivity::class.java))
         }

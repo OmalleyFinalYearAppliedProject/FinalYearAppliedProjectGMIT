@@ -10,7 +10,7 @@ object  RetrofitClient {
 
     private val AUTH = "Basic "+ Base64.encodeToString("testertom:11".toByteArray(), Base64.NO_WRAP)
 
-    private const val BASE_URL = "https://cloud-backend-js.herokuapp.com"
+    private const val BASE_URL = "https://quiz-node-js-backend.herokuapp.com/"
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor { chain ->

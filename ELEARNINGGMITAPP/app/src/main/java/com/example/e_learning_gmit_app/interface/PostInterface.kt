@@ -14,11 +14,11 @@ interface PostInterface {
     // OKHTTP NETWORK GET REQUEST FOR QUESTIONS API
     @get:GET("posts")
     // CREATE STORE POSTS INTO A LIST
-    val posts : Call<List<PostModel?>?>
+    val forumposts : Call<List<PostModel?>?>
 
     // OBJ HOLDS URL TO SERVER
     companion object {
-        const val BASE_URL = "https://cloud-backend-js.herokuapp.com"
+        const val BASE_URL = "https://quiz-node-js-backend.herokuapp.com/"
     }
 
     // Post request create posts

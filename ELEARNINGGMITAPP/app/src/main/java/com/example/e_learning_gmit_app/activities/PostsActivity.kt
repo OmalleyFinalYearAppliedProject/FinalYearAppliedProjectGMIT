@@ -12,7 +12,7 @@ import com.example.e_learning_gmit_app.models.DefaultResponse
 import com.example.e_learning_gmit_app.models.FeedModel
 import com.example.e_learning_gmit_app.models.PostModel
 import kotlinx.android.synthetic.main.activity_posts.*
-import kotlinx.android.synthetic.main.activity_quiz_feed.*
+import kotlinx.android.synthetic.main.activity_post_feed.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,7 +40,6 @@ class PostsActivity : AppCompatActivity() {
                 editPostTitle.requestFocus()
                 return@setOnClickListener
             }
-
 
 
             if(active.isEmpty()){

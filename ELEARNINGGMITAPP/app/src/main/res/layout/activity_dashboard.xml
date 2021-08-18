@@ -148,7 +148,7 @@
 
 
                     <TextView
-                        android:id="@+id/messaging_btn"
+                        android:id="@+id/postsfeed_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Posts"
@@ -187,7 +187,7 @@
                         android:src="@drawable/editicon"
                         android:layout_marginTop="20dp"/>
                     <TextView
-                        android:id="@+id/create_post_button"
+                        android:id="@+id/createpost_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Create Post"

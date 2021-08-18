@@ -5,44 +5,46 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.example.e_learning_gmit_app.R
 import com.example.e_learning_gmit_app.`interface`.FeedInterface
+import com.example.e_learning_gmit_app.`interface`.PostInterface
 import com.example.e_learning_gmit_app.models.FeedModel
-import kotlinx.android.synthetic.main.activity_quiz_feed.*
+import com.example.e_learning_gmit_app.models.PostModel
+import kotlinx.android.synthetic.main.activity_post_feed.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class QuizFeed : AppCompatActivity() {
+class PostFeed : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz_feed)
+        setContentView(R.layout.activity_post_feed)
 
 
         // create instance of retrofit client
         var rf = Retrofit.Builder()
-            .baseUrl(FeedInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(PostInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        var API = rf.create(FeedInterface::class.java)
-        var call = API.posts
+        var API = rf.create(PostInterface::class.java)
+        var call = API.forumposts
 
-        call?.enqueue(object : Callback<List<FeedModel?>?> {
+        call?.enqueue(object : Callback<List<PostModel?>?> {
 
-            override fun onFailure(call: Call<List<FeedModel?>?>, t: Throwable) {
+            override fun onFailure(call: Call<List<PostModel?>?>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 
             override fun onResponse(
-                call: Call<List<FeedModel?>?>,
-                response: Response<List<FeedModel?>?>
+                call: Call<List<PostModel?>?>,
+                response: Response<List<PostModel?>?>
             ) {
-                var feedList: List<FeedModel>? = response.body() as List<FeedModel>
-                var post = arrayOfNulls<String>(feedList!!.size)
+                var postList: List<PostModel>? = response.body() as List<PostModel>
+                var post = arrayOfNulls<String>(postList!!.size)
 
                 // loop over posts
-                for (i in feedList!!.indices)
-                    post[i] = feedList!![i]!!.description
+                for (i in postList!!.indices)
+                    post[i] = postList!![i]!!.title
 
 
                 var adapter = ArrayAdapter<String>(
@@ -51,7 +53,6 @@ class QuizFeed : AppCompatActivity() {
                     post
                 )
                 listview.adapter = adapter
-
             }
         })
     }
