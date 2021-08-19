@@ -7,7 +7,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.e_learning_gmit_app.models.userModelClass
+import com.example.e_learning_gmit_app.models.calenderModelClass
 
 class DatabaseHandler(context: Context) :
         SQLiteOpenHelper(context,
@@ -16,52 +16,54 @@ class DatabaseHandler(context: Context) :
         ) {
 
 
-    // object dataabse holdign user details
+    // object  holding  event  details
     companion object {
+        // instance variables
         private val DATABASE_VERSION = 1
-        private val DATABASE_NAME = "UserDatabase"
-
-        private val TABLE_CONTACTS = "UserTable"
-
+        private val DATABASE_NAME = "EventDatabase"
+        private val TABLE_EVENTS = "EventTable"
         private val KEY_ID = "_id"
         private val KEY_NAME = "name"
-        private val KEY_EMAIL = "email"
+        private val KEY_DATE = "date"
     }
 
-    // creates a  simple SQLite db
+    // creates a  simple  evrnt SQLite db
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE_CONTACTS + "("
+        val CREATE_EVENTS_TABLE = ("CREATE TABLE " + TABLE_EVENTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_EMAIL + " TEXT" + ")")
-        db?.execSQL(CREATE_CONTACTS_TABLE)
+                + KEY_DATE + " TEXT" + ")")
+        db?.execSQL(CREATE_EVENTS_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
+        db!!.execSQL("DROP TABLE IF EXISTS $TABLE_EVENTS")
         onCreate(db)
     }
 
-    // method adds a user to sqllite db
-    fun addUser(use: userModelClass): Long {
+    // method adds an event  to sqllite db
+    fun addEvent(use: calenderModelClass): Long {
         val db = this.writableDatabase
 
+            // append to
         val contentValues = ContentValues()
         contentValues.put(KEY_NAME, use.name)
-        contentValues.put(KEY_EMAIL, use.email)
+        contentValues.put(KEY_DATE, use.date)
 
-        val success = db.insert(TABLE_CONTACTS, null, contentValues)
+        // insert query when correct request
+        val correct = db.insert(TABLE_EVENTS, null, contentValues)
 
         db.close() // Closing database connection
-        return success
+        return correct
     }
 
     //Method to read the records from database in form of ArrayList
-    fun viewUser(): ArrayList<userModelClass> {
+    fun viewEvent(): ArrayList<calenderModelClass> {
 
-        val empList: ArrayList<userModelClass> = ArrayList<userModelClass>()
+        // hold events in an array
+        val eventList: ArrayList<calenderModelClass> = ArrayList<calenderModelClass>()
 
         // Query to select all the records from the table.
-        val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
+        val selectQuery = "SELECT  * FROM $TABLE_EVENTS"
 
         val db = this.readableDatabase
         var cursor: Cursor? = null
@@ -69,7 +71,7 @@ class DatabaseHandler(context: Context) :
         try {
             cursor = db.rawQuery(selectQuery, null)
 
-            // break point catch erros
+            // break point catch errors
         } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
             return ArrayList()
@@ -77,56 +79,57 @@ class DatabaseHandler(context: Context) :
         // instance variable
         var id: Int
         var name: String
-        var email: String
+        var date: String
 
         if (cursor.moveToFirst()) {
             do {
                 id = cursor.getInt(cursor.getColumnIndex(KEY_ID))
                 name = cursor.getString(cursor.getColumnIndex(KEY_NAME))
-                email = cursor.getString(cursor.getColumnIndex(KEY_EMAIL))
+                date = cursor.getString(cursor.getColumnIndex(KEY_DATE))
 
-                val emp = userModelClass(
+                val evCal = calenderModelClass(
                     id = id,
                     name = name,
-                    email = email
+                    date = date
                 )
-                empList.add(emp)
+                eventList.add(evCal)
 
             } while (cursor.moveToNext())
         }
-        return empList
+        return eventList
     }
 
 
-    // function to update user information
-    fun updateUser(emp: userModelClass): Int {
+    // function to update event information
+    fun updateEvent(evCal: calenderModelClass): Int {
 
+        // instance variables
         val db = this.writableDatabase
         val contentValues = ContentValues()
 
-        contentValues.put(KEY_NAME, emp.name)
-        contentValues.put(KEY_EMAIL, emp.email)
+        contentValues.put(KEY_NAME, evCal.name)
+        contentValues.put(KEY_DATE, evCal.date)
 
-        // Updating Row
-        val success = db.update(TABLE_CONTACTS, contentValues, KEY_ID + "=" + emp.id, null)
+        // Update  Row
+        val correct = db.update(TABLE_EVENTS, contentValues, KEY_ID + "=" + evCal.id, null)
 
         // Closing database connection
         db.close()
-        return success
+        return correct
     }
 
-    // function to delete a record from the database
-    fun deleteUser(emp: userModelClass): Int {
+    // function to delete an event  from the database
+    fun deleteEvent(evCal: calenderModelClass): Int {
 
         val db = this.writableDatabase
         val contentValues = ContentValues()
 
-        contentValues.put(KEY_ID, emp.id) // EmpModelClass id
+        contentValues.put(KEY_ID, evCal.id) // calender Model id
         // Deleting Row meesage
-        val success = db.delete(TABLE_CONTACTS, KEY_ID + "=" + emp.id, null)
+        val correct = db.delete(TABLE_EVENTS, KEY_ID + "=" + evCal.id, null)
 
         // Closing database connection
         db.close()
-        return success
+        return correct
     }
 }

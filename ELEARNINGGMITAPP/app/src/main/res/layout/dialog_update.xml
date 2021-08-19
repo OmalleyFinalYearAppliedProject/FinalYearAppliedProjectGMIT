@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Name"
+            android:text="Event"
             android:textSize="18sp" />
 
         <EditText
@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Enter Name" />
+            android:hint="Event Name" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,16 +44,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Email ID"
+            android:text="Event Date"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etUpdateEmailId"
+            android:id="@+id/etUpdateDATEId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:inputType="textEmailAddress"
-            android:hint="Enter Email ID" />
+            android:inputType="text"
+            android:hint="Enter Event Date" />
     </LinearLayout>
 
     <LinearLayout
@@ -80,7 +80,7 @@
             android:layout_height="match_parent"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:padding="10dp"
             android:text="CANCEL"
             android:textColor="@android:color/black"

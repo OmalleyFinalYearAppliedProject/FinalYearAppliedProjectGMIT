@@ -8,10 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.e_learning_gmit_app.R
 import com.example.e_learning_gmit_app.activities.CalenderActivity
-import com.example.e_learning_gmit_app.models.userModelClass
+import com.example.e_learning_gmit_app.models.calenderModelClass
 import kotlinx.android.synthetic.main.item_row.view.*
 
-class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
+class ItemAdapter(val context: Context, val items: ArrayList<calenderModelClass>) :
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,7 +32,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
         val item = items.get(position)
 
         holder.tvName.text = item.name
-        holder.tvEmail.text = item.email
+        holder.tvDate.text = item.date
 
         if (position % 2 == 0) {
             holder.llMain.setBackgroundColor(
@@ -74,7 +74,7 @@ class ItemAdapter(val context: Context, val items: ArrayList<userModelClass>) :
         // Holds the TextView that will add each item to
         val llMain = view.llMain
         val tvName = view.tvName
-        val tvEmail = view.tvEmail
+        val tvDate = view.tvDate
         val ivEdit = view.ivEdit
         val ivDelete = view.ivDelete
     }

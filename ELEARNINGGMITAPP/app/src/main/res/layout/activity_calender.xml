@@ -67,12 +67,12 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etEmailId"
+            android:id="@+id/etDateId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
             android:hint="Enter Event Date"
-            android:inputType="textEmailAddress" />
+            android:inputType="text" />
     </LinearLayout>
 
     <Button
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:backgroundTint="@color/colorAccent"
-        android:text="ADD EVENT" />
+        android:text="Add event" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="All your events."
+            android:text="Current events."
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -114,7 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="No events available!!!"
+        android:text="No events please create one"
         android:textSize="18sp"
         android:visibility="gone"
         tools:visibility="visible" />

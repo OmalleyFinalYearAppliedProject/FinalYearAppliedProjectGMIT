@@ -10,8 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_learning_gmit_app.sqlitedb.DatabaseHandler
 import com.example.e_learning_gmit_app.sqlitedb.ItemAdapter
 import com.example.e_learning_gmit_app.R
-import com.example.e_learning_gmit_app.models.userModelClass
+import com.example.e_learning_gmit_app.models.calenderModelClass
+import kotlinx.android.synthetic.main.activity_calender.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.content_main.btnAdd
+import kotlinx.android.synthetic.main.content_main.etName
+import kotlinx.android.synthetic.main.content_main.rvItemsList
+import kotlinx.android.synthetic.main.content_main.tvNoRecordsAvailable
 import kotlinx.android.synthetic.main.dialog_update.*
 
 class CalenderActivity : AppCompatActivity() {
@@ -70,37 +75,37 @@ class CalenderActivity : AppCompatActivity() {
     /**
      * getItemsList()  used to get the Items List from the database table.
      */
-    private fun getItemsList(): ArrayList<userModelClass> {
+    private fun getItemsList(): ArrayList<calenderModelClass> {
         //creating the instance of DatabaseHandler class
-        val databaseHandler: DatabaseHandler =
+        val databaseHandler =
             DatabaseHandler(this)
         //calling the viewUser method of DatabaseHandler class to read the records
-        val empList: ArrayList<userModelClass> = databaseHandler.viewUser()
+        val evList: ArrayList<calenderModelClass> = databaseHandler.viewEvent()
 
-        return empList
+        return evList
     }
 
     //Method for saving the user records in database
     private fun addRecord() {
 
         val name = etName.text.toString()
-        val email = etEmailId.text.toString()
+        val date = etDateId.text.toString()
 
         val databaseHandler: DatabaseHandler =
             DatabaseHandler(this)
-        if (!name.isEmpty() && !email.isEmpty()) {
+        if (!name.isEmpty() && !date.isEmpty()) {
             val status =
-                databaseHandler.addUser(
-                    userModelClass(
+                databaseHandler.addEvent(
+                    calenderModelClass(
                         0,
                         name,
-                        email
+                        date
                     )
                 )
             if (status > -1) {
                 Toast.makeText(applicationContext, "Record saved", Toast.LENGTH_LONG).show()
                 etName.text.clear()
-                etEmailId.text.clear()
+                etDateId.text.clear()
 
                 setupListofDataIntoRecyclerView()
             }
@@ -116,7 +121,7 @@ class CalenderActivity : AppCompatActivity() {
     /**
      * Method is used to show the Custom Dialog.
      */
-    fun updateRecordDialog(userModelClass: userModelClass) {
+    fun updateRecordDialog(calenderModelClass: calenderModelClass) {
 
 
         val updateDialog = Dialog(this,
@@ -127,38 +132,40 @@ class CalenderActivity : AppCompatActivity() {
 
         updateDialog.setContentView(R.layout.dialog_update)
 
-        updateDialog.etUpdateName.setText(userModelClass.name)
-        updateDialog.etUpdateEmailId.setText(userModelClass.email)
+        updateDialog.etUpdateName.setText(calenderModelClass.name)
+        updateDialog.etUpdateDATEId.setText(calenderModelClass.date)
 
         updateDialog.tvUpdate.setOnClickListener(View.OnClickListener {
 
 
-            // user details cast to strings
+            // calender event details cast to strings
             val name = updateDialog.etUpdateName.text.toString()
-            val email = updateDialog.etUpdateEmailId.text.toString()
-
+            val date = updateDialog.etUpdateDATEId.text.toString()
+            // create instance of helper
             val databaseHandler: DatabaseHandler =
                 DatabaseHandler(this)
 
-            if (!name.isEmpty() && !email.isEmpty()) {
+            // when empty update
+            if (!name.isEmpty() && !date.isEmpty()) {
                 val status =
-                    databaseHandler.updateUser(
-                        userModelClass(
-                            userModelClass.id,
+                    databaseHandler.updateEvent(
+                        calenderModelClass(
+                            calenderModelClass.id,
                             name,
-                            email
+                            date
                         )
                     )
                 if (status > -1) {
+                    // display text on update
                     Toast.makeText(applicationContext, "Record Updated.", Toast.LENGTH_LONG).show()
 
                     setupListofDataIntoRecyclerView()
 
-                    updateDialog.dismiss() // Dialog will be dismissed
+                    updateDialog.dismiss() // Dissmiss dialog box
                 }
             } else {
 
-                //event message displayd to user screen
+                //event message display  to user screen
                 Toast.makeText(
                     applicationContext,
                     "Event Name or Event Date cannot be blank",
@@ -176,13 +183,13 @@ class CalenderActivity : AppCompatActivity() {
     /**
      * Method is used to show the Alert Dialog.
      */
-    fun deleteRecordAlertDialog(empModelClass: userModelClass) {
+    fun deleteRecordAlertDialog(calenderModelClass: calenderModelClass) {
         val builder = AlertDialog.Builder(this)
         //set title for alert dialog
         builder.setTitle("Delete Event")
 
         //set message for alert dialog
-        builder.setMessage("Are you sure you want to delete ${empModelClass.name}.")
+        builder.setMessage("Are you sure you want to delete ${calenderModelClass.name}.")
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
         builder.setPositiveButton("Yes") { dialogInterface, which ->
@@ -193,9 +200,9 @@ class CalenderActivity : AppCompatActivity() {
             //calling the deleteUser method of DatabaseHandler class to delete record
 
 
-            val status = databaseHandler.deleteUser(
-                userModelClass(
-                    empModelClass.id,
+            val status = databaseHandler.deleteEvent(
+                calenderModelClass(
+                    calenderModelClass.id,
                     "",
                     ""
                 )
