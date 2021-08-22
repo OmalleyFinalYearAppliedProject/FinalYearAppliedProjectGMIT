@@ -55,6 +55,25 @@
         app:layout_constraintVertical_bias="0.0"
         tools:text="example" />
 
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:textColor="#000"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="email:" />
+
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
@@ -77,33 +96,25 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="157dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="108dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/accsettings" />
+
     <TextView
         android:id="@+id/profileText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textColor="#000"
-        android:text="My Profile"
+        android:text=" Profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="31dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="288dp"
-        app:layout_constraintEnd_toStartOf="@+id/email_txt"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/accsettings" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
