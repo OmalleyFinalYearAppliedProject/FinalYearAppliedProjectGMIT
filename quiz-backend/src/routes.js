@@ -43,7 +43,7 @@ router.get('/posts/:id', async (req, res) => {
         if(!post){
             return res.status(404).json({})
         }else{
-            return res.status(200).json(question)
+            return res.status(200).json(post)
         }
     } catch (error) {
         return res.status(500).json({"error":error})
