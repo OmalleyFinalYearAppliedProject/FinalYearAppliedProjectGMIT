@@ -50,6 +50,29 @@ router.get('/posts/:id', async (req, res) => {
     }
 })
 
+// create a post
+router.post('/createpost', async (req, res) => {
+    try {
+        const { title } = req.body
+        const { active } = req.body        
+        const { student } = req.body
+        const { teacher } = req.body
+
+
+
+        const post = await Post.create({
+            title,
+            active,
+            student,
+            teacher
+
+        })
+
+        return res.status(201).json(post)
+    } catch (error) {
+        return res.status(500).json({"error":error})
+    }
+})
 
 
 

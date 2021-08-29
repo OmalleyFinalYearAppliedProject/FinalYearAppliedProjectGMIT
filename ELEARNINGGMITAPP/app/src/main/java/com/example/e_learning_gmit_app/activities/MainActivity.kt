@@ -8,7 +8,6 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
     // instantiate firebase authenticator
     private lateinit var mAuth: FirebaseAuth
 
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(signInintent)
             finish()
         }
-
         // RETREIVE AND MAP CURRENT VARIABLES
         val userId = intent.getStringExtra("user_id")
         val emailId = intent.getStringExtra("email_id")

@@ -8,3 +8,4 @@ class FeedModel {
     var description: String? = null
     var body: String? = null
 }
+

@@ -4,6 +4,7 @@ import com.example.e_learning_gmit_app.R
 
 object Constants{
 
+    // Instance Variables
     const val USER_NAME: String = "user_name"
     const val TOTAL_QUESTIONS: String = "total_q"
     const val Correct_Ans: String = "correct_q"

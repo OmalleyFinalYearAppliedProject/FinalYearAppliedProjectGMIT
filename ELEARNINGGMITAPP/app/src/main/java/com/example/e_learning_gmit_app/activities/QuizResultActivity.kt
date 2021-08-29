@@ -7,7 +7,7 @@ import com.example.e_learning_gmit_app.R
 import com.example.e_learning_gmit_app.data.Constants
 import kotlinx.android.synthetic.main.activity_result.*
 
-class ResultActivity : AppCompatActivity() {
+class QuizResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)

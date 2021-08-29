@@ -66,7 +66,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         //Map constant text to on screen button
         tv_question.text = question!!.question
-    //    iv_image.setImageResource(question.image)
         tv_option_one.text = question.optionOne
         tv_option_two.text = question.optionTwo
         tv_option_three.text = question.optionThree
@@ -128,7 +127,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         else -> {
 
 
-                            val intent = Intent(this , ResultActivity::class.java)
+                            val intent = Intent(this , QuizResultActivity::class.java)
 
                             intent.putExtra(Constants.USER_NAME, mUserName)
                             intent.putExtra(Constants.Quiz_Attempts, noOfQuizzesTaken)
