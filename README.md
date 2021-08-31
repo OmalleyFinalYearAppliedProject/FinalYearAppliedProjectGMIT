@@ -72,6 +72,14 @@ The project was designed with a three tier architecture  in mind.
 ## Running 
 - After compiling from source code or loading the apk the user can now interact with the application.
 
+
+
+## Screencast  
+
+1. [Mobile App Demo](https://www.youtube.com/watch?v=31mE5qygu8E)
+
+
+
 ## Useful resources  
 
 1. [Android Studio IDE Install](https://developer.android.com/studio?gclid=Cj0KCQjw6s2IBhCnARIsAP8RfAgZf6hBLwav2N_8VCzimwOBzo6Rh8jOl3a4EsPB7p4OaEcwcWLnEmcaAg_3EALw_wcB&gclsrc=aw.ds)
