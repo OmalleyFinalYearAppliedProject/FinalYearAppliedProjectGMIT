@@ -12,6 +12,6 @@ interface FeedInterface {
 
     // OBJ HOLDS URL TO SERVER
     companion object {
-        const val BASE_URL = "https://cloud-backend-js.herokuapp.com"
+        const val BASE_URL = "https://quiz-node-js-backend.herokuapp.com/"
     }
 }

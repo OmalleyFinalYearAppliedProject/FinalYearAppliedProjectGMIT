@@ -1,0 +1,110 @@
+\documentclass[12pt,a4paper,oneside,openany]{book}
+\usepackage{pgf-pie}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{upquote}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\usetikzlibrary{mindmap,shadows, shapes, arrows, positioning}
+
+%% Change these:
+\newcommand{\projecttitle}
+{An android electronic-learning application}
+\newcommand{\projectauthor}{Tomás O'Malley \\[0.2cm]  }
+\newcommand{\projectadvisor}{ Dr.John French }
+\newcommand{\projectprogramme}{B.Sc.(Hons) in Software Development}
+\newcommand{\projectdate}{\today}
+%% End of things to change.
+
+
+
+\tikzstyle{rect} = [rectangle, fill=blue!50, text width=4.5em, text centered, minimum height=4em, rounded corners]
+\tikzstyle{line} = [draw, ->, very thick]
+\tikzstyle{oval} = [ellipse, fill=green!50, text width=5em, text centered]
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+
+\begin{document}
+  \begin{titlepage}
+    \begin{minipage}[t][6cm]{\textwidth}
+      \centering
+      \rule{\linewidth}{0.5mm} \\[0.4cm]
+      { \LARGE \bfseries \projecttitle \\[0.4cm] }
+      \rule{\linewidth}{0.5mm} \\[0.8cm]
+    \end{minipage}
+    
+    \begin{minipage}[t][6.5cm]{\textwidth}
+      \centering
+      \textbf{\projectauthor}
+      \projectprogramme
+    \end{minipage}
+  
+    \begin{minipage}[t][1cm]{\textwidth}
+      \centering
+      \textsc{\projectdate}
+    \end{minipage}
+      
+    \begin{minipage}[t][3cm]{\textwidth}
+      \centering
+      \textbf{Final Year Project}\\[0.3cm]
+      Supervised by: \projectadvisor \\[0.1cm]
+      Department of Computer Science and Applied Physics\\
+      Galway-Mayo Institute of Technology (GMIT)
+    \end{minipage}
+  
+    \begin{center}    
+      \includegraphics{img/gmit-logo.jpg}
+    \end{center}
+  \end{titlepage}
+  \setcounter{page}{2}
+  \tableofcontents
+  \input{content.tex}
+  \bibliographystyle{ieeetr}
+  \bibliography{bibliography}
+\end{document}

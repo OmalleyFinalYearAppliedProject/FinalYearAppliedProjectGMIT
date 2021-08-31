@@ -19,9 +19,7 @@ router.get('/questions', async (req, res) => {
     }
 })
 
-
-
-// test t2 
+ 
 // get all posts 
 router.get('/posts', async (req, res) => {
     try {
@@ -73,7 +71,6 @@ router.post('/createpost', async (req, res) => {
         return res.status(500).json({"error":error})
     }
 })
-
 
 
 

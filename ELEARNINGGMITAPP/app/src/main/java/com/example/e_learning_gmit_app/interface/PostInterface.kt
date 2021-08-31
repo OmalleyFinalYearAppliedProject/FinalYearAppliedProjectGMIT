@@ -23,7 +23,7 @@ interface PostInterface {
 
     // Post request create posts
     @FormUrlEncoded
-    @POST("createpost")
+    @POST("posts")
     fun createPost(
         @Field( "title") title:String,
         @Field( "active") active:String,
@@ -33,3 +33,5 @@ interface PostInterface {
     ):Call<DefaultResponse>
 
 }
+
+

@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.example.e_learning_gmit_app.R
-import com.example.e_learning_gmit_app.`interface`.FeedInterface
 import com.example.e_learning_gmit_app.`interface`.PostInterface
-import com.example.e_learning_gmit_app.models.FeedModel
 import com.example.e_learning_gmit_app.models.PostModel
 import kotlinx.android.synthetic.main.activity_post_feed.*
 import retrofit2.Call
